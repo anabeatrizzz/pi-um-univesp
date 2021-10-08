@@ -1,6 +1,7 @@
 ## Configurações
 
-### Windows
+<details>
+<summary>Windows</summary>
 
 1. Instale Python:
 - Acesse https://www.python.org/downloads/ e clique em __Download Python__.
@@ -19,9 +20,22 @@
 4. Instale Django:
 - Na mesma janela de Prompt de comando usada para ativar o ambiente virtual escreva `py -m pip install Django`.
 - Depois da instalação escreva `django-admin --version` para saber a versão Django instalada.
+
+5. Instale yarn com npm:
+- Acesse https://nodejs.org/en/download/ e siga as instruções para instalar NodeJS.
+- Escreva `node -v` e `npm -v` para verificar se a instalação ocorreu com sucesso.
+
+6. Instale git
+- Acesse https://gitforwindows.org/ e clique em __Download__.
+- Abra o Prompt de Comando e escreva `git version` para verificar a versão e constatar que git foi instalado corretamente.
 - Siga para o tópico [Instalando e executando este projeto](#Instalando-e-executando-este-projeto)
 
-## MacOS
+</details>
+
+
+<details>
+<summary>MacOS</summary>
+
 1. Instale Python:
 - Abra uma nova janela de terminal e escreva `brew install python3`.
 
@@ -37,9 +51,20 @@
 4. Instale Django:
 - `sudo pip install django`
 - `python -m django --version`
+
+5. Instale yarn com npm:
+- Escreva `brew install node`.
+- Escreva `node -v` e `npm -v` para verificar se a instalação ocorreu com sucesso.
+
+6. Instale git
+- Escreva `brew install git` no terminal e depois veja a versão escrevendo `git version`.
 - Siga para o tópico [Instalando e executando este projeto](#Instalando-e-executando-este-projeto)
 
-## Linux
+</details>
+
+<details>
+<summary>Linux</summary>
+
 1. Instale Python
 - Primeiro veja se Python já está instalado escrevendo `py --version` ou `python --version` no terminal.
 - Se a versão não for retornada vá até https://www.python.org/downloads/ e clique em __Download Python__.
@@ -55,31 +80,27 @@
 4. Instale Django:
 - `sudo pip install django`
 - `python -m django --version`
-- Siga para o tópico [Instalando e executando este projeto](#Instalando-e-executando-este-projeto)
 
+5. Instale yarn com npm:
+- Acesse https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions e escolha sua distribuição e siga as instruções.
+
+6. Instale git:
+- Acesse https://github.com/git-guides/install-git#install-git-on-linux, escolha sua distribuição e siga as instruções.
+- Siga para o tópico [Instalando e executando este projeto](#Instalando-e-executando-este-projeto)
+</details>
 
 ## Instalando e executando este projeto
 - Acesse a pasta `pi-um` pelo Prompt de comando usando `cd`.
 
-1. Instale git
-
-__Windows__:
-- Acesse https://gitforwindows.org/ e clique em __Download__.
-- Abra o Prompt de Comando e escreva `git version` para verificar a versão e constatar que git foi instalado corretamente.
-
-__MacOs__:
-- Escreva `brew install git` no terminal e depois veja a versão escrevendo `git version`.
-
-__Linux__:
-- __Debian/Ubuntu__: Escreva `sudo apt-get install git-all` no terminal para instalar e depois `git version` para constatar a instalação.
-- __Fedora__: Escreva `sudo dnf install git-all` no terminal para instalar e depois `git version` para constatar a instalação.
-
 2. Clone este repositorio
 - `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`.
 
-Estas ultimas linhas devem ser executadas toda vez que necessitar acessar o projeto:
+3. Entre na pasta __pi-um-univesp__ pelo terminal/prompt de comando
 - `cd pi-um-univesp`.
-- Executando o servidor: `python manage.py runserver`.
+- `yarn install`
+- `yarn build`
+
+- Executando o servidor: `python manage.py runserver` (este comando deve ser executado toda vez que se deseja acessar a página do projeto).
 - Acesse http://127.0.0.1:8000/
 
 ## O que cada pasta representa
