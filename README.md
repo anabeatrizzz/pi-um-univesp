@@ -32,7 +32,6 @@
 
 </details>
 
-
 <details>
 <summary>MacOS</summary>
 
@@ -93,19 +92,27 @@
 1. Acesse a pasta `pi-um`
 - `cd pi-um`
 
-2. Clone este repositorio
+2. Inicie o ambiente virtual se não estiver iniciado
+- __Windows__: `pi-um\Scripts\activate.bat`
+- __MacOS__: `source bin/activate`
+
+3. Clone este repositorio
 - `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`
 - Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
 
-3. Entre na pasta __pi-um-univesp__ pelo terminal/prompt de comando
+4. Entre na pasta __pi-um-univesp__ pelo terminal/prompt de comando
 - `cd pi-um-univesp`.
+
+5. Crie a pasta node_modules
 - `yarn install`
+
+6. Crie a pasta build
 - `yarn build`
 
-4. Execute o servidor:
+7. Execute o servidor:
 - `python manage.py runserver` (este comando deve ser executado toda vez que se deseja acessar a página do projeto).
 
-5. Acesse http://127.0.0.1:8000/
+8. Acesse http://127.0.0.1:8000/
 
 ## O que cada pasta representa
 - __frontend-pi-um__: Guarda todos os arquivos relacionados ao framework web React.
