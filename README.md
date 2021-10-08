@@ -23,7 +23,7 @@
 
 5. Instale yarn com npm:
 - Acesse https://nodejs.org/en/download/ e siga as instruções para instalar NodeJS.
-- Escreva `node -v` e `npm -v` para verificar se a instalação ocorreu com sucesso.
+- Escreva `node -v` e em seguida, `npm -v` para verificar se a instalação ocorreu com sucesso.
 
 6. Instale git
 - Acesse https://gitforwindows.org/ e clique em __Download__.
@@ -53,7 +53,7 @@
 
 5. Instale yarn com npm:
 - Escreva `brew install node`.
-- Escreva `node -v` e `npm -v` para verificar se a instalação ocorreu com sucesso.
+- Escreva `node -v` e em seguida, `npm -v` para verificar se a instalação ocorreu com sucesso.
 
 6. Instale git
 - Escreva `brew install git` no terminal e depois veja a versão escrevendo `git version`.
@@ -96,21 +96,21 @@
 - __Windows__: `pi-um\Scripts\activate.bat`
 - __MacOS__: `source bin/activate`
 
-3. Clone este repositorio
+3. Clone este repositório (opcional se já feito antes)
 - `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`
 - Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
 
 4. Entre na pasta __pi-um-univesp__ pelo terminal/prompt de comando
 - `cd pi-um-univesp`.
 
-5. Crie a pasta node_modules
+5. Crie a pasta node_modules (opcional se já feito antes e nenhuma dependência nova foi adicionada)
 - `yarn install`
 
-6. Crie a pasta build
+6. Crie a pasta build (opcional se já feito antes)
 - `yarn build`
 
 7. Execute o servidor:
-- `python manage.py runserver` (este comando deve ser executado toda vez que se deseja acessar a página do projeto).
+- `python manage.py runserver`.
 
 8. Acesse http://127.0.0.1:8000/
 
