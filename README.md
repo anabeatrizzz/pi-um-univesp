@@ -62,6 +62,7 @@
 - Acesse a pasta `pi-um` pelo Prompt de comando usando `cd`.
 
 1. Instale git
+
 __Windows__:
 - Acesse https://gitforwindows.org/ e clique em __Download__.
 - Abra o Prompt de Comando e escreva `git version` para verificar a versão e constatar que git foi instalado corretamente.
@@ -82,11 +83,11 @@ Estas ultimas linhas devem ser executadas toda vez que necessitar acessar o proj
 - Acesse http://127.0.0.1:8000/
 
 ## O que cada pasta representa
-__frontend-pi-um__: Guarda todos os arquivos relacionados ao framework web React.
-__pi-um-univesp__: Guarda todos os arquivos relacionados ao framework Django.
+- __frontend-pi-um__: Guarda todos os arquivos relacionados ao framework web React.
+- __pi-um-univesp__: Guarda todos os arquivos relacionados ao framework Django.
 
 ## Referencias
-[Setup Django Mac: How To Install Django On Mac](https://appdividend.com/2018/03/28/how-to-install-django-in-mac/)
-[How to install Django on Windows](https://docs.djangoproject.com/en/3.2/howto/windows/)
-[Documentação para instalar pip](https://pip.pypa.io/en/stable/installation/)
-[Install git](https://github.com/git-guides/install-git)
+- [Setup Django Mac: How To Install Django On Mac](https://appdividend.com/2018/03/28/how-to-install-django-in-mac/)
+- [How to install Django on Windows](https://docs.djangoproject.com/en/3.2/howto/windows/)
+- [Documentação para instalar pip](https://pip.pypa.io/en/stable/installation/)
+- [Install git](https://github.com/git-guides/install-git)
