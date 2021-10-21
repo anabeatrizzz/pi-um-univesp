@@ -28,12 +28,17 @@ export const module = {
     {
       test: /\.svg$/,
       use: [
+        MiniCssExtractPlugin.loader,
         {
-          loader: "svg-url-loader",
+          loader: "css-loader",
           options: {
-            limit: 10000,
-          },
-        },
+            modules: true,
+            importLoaders: 1,
+            localIdentName: "[name]_[local]_[hash:base64]",
+            sourceMap: true,
+            minimize: true
+          }
+        }
       ],
     },
   ],
