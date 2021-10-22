@@ -7,9 +7,9 @@ import Home from './pages/home';
 function App() {
   return (
     <>
-    <Header />
-    <Home />
-    <Footer />
+      <Header />
+      <Home />
+      <Footer />
     </>
   );
 }
