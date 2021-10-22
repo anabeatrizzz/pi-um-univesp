@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createRef } from 'react';
+import React, { useState, createRef, useLayoutEffect } from 'react';
 import { API_KEY } from '../../.env'
 
 declare global {
@@ -7,12 +7,12 @@ declare global {
   }
 }
 
-
 export default function Map(){
   const [map, setMap] = useState(null)
   const mapRef = createRef()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (!mapRef.current) return;
     let isMounted = true
     const H = window.H;
     const platform = new H.service.Platform({
@@ -26,7 +26,7 @@ export default function Map(){
       defaultLayers.vector.normal.map,
       {
         center: { lat: -24.2012478, lng: -46.8520655 },
-        zoom: 20,
+        zoom: 15,
         pixelRatio: window.devicePixelRatio || 1
       }
     );
@@ -34,10 +34,9 @@ export default function Map(){
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
     const ui = H.ui.UI.createDefault(map, defaultLayers);
-
-    setMap(map)
-    return () => { isMounted = false }
-  }, [])
+    
+    return () => { map.dispose() }
+  }, [mapRef])
 
   return(
     <div
