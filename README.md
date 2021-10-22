@@ -100,8 +100,8 @@
 - `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`
 - Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
 
-4. Entre na pasta __pi-um-univesp__ pelo terminal/prompt de comando
-- `cd pi-um-univesp`.
+4. Entre na pasta __frontend-pi-um__ pelo terminal/prompt de comando
+- `cd frontend-pi-um`.
 
 5. Crie a pasta node_modules (opcional se já feito antes e nenhuma dependência nova foi adicionada)
 - `yarn install`
@@ -113,6 +113,8 @@
 - `python manage.py runserver`.
 
 8. Acesse http://127.0.0.1:8000/
+
+9. Em uma nova aba do terminal, vá até a pasta frontend-pi-um com `cd frontend-pi-um`, escreva `yarn start` e o navegador abrirá uma página contendo o front-end do projeto.
 
 ## O que cada pasta representa
 - __frontend-pi-um__: Guarda todos os arquivos relacionados ao framework web React.
