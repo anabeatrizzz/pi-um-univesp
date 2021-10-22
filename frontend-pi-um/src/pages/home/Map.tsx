@@ -1,4 +1,4 @@
-import React, { useState, createRef, useLayoutEffect } from 'react';
+import React, { createRef, useLayoutEffect } from 'react';
 import { API_KEY } from '../../.env'
 
 declare global {
@@ -8,12 +8,10 @@ declare global {
 }
 
 export default function Map(){
-  const [map, setMap] = useState(null)
   const mapRef = createRef()
 
   useLayoutEffect(() => {
     if (!mapRef.current) return;
-    let isMounted = true
     const H = window.H;
     const platform = new H.service.Platform({
         apikey: API_KEY
