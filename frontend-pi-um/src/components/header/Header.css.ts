@@ -1,4 +1,5 @@
 import { makeStyles } from '@mui/styles';
+import { colors } from '../../assets/variables';
 
 const useStyles = makeStyles({
   header: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
   },
   
   li: {
-    color: '#FBD528',
+    color: colors.mostarda,
     marginTop: 0,
     marginRight: 15,
     justifyContent: 'space-between',
