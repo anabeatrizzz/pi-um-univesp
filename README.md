@@ -92,29 +92,37 @@
 1. Acesse a pasta `pi-um`
 - `cd pi-um`
 
+2. Clone este repositório (opcional se já feito antes)
+- `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`
+- Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
+
+3. Entre na pasta __frontend-pi-um__ pelo terminal/prompt de comando
+- `cd pi-um-univesp/frontend-pi-um`
+
+4. Crie a pasta __node_modules__ (opcional se já feito antes e nenhuma dependência nova foi adicionada)
+- `yarn install`
+
+5. Crie a pasta __build__ (opcional se já feito antes)
+- `yarn build`
+
+### Executando backend
+1. Acesse a pasta `pi-um`
+- `cd pi-um`
+
 2. Inicie o ambiente virtual se não estiver iniciado
 - __Windows__: `pi-um\Scripts\activate.bat`
 - __MacOS__: `source bin/activate`
 
-3. Clone este repositório (opcional se já feito antes)
-- `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`
-- Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
-
-4. Entre na pasta __frontend-pi-um__ pelo terminal/prompt de comando
-- `cd frontend-pi-um`.
-
-5. Crie a pasta node_modules (opcional se já feito antes e nenhuma dependência nova foi adicionada)
-- `yarn install`
-
-6. Crie a pasta build (opcional se já feito antes)
-- `yarn build`
-
-7. Execute o servidor:
+3. Execute o servidor:
 - `python manage.py runserver`.
 
-8. Acesse http://127.0.0.1:8000/
+4. Acesse http://127.0.0.1:8000/
 
-9. Em uma nova aba do terminal, vá até a pasta frontend-pi-um com `cd frontend-pi-um`, escreva `yarn start` e o navegador abrirá uma página contendo o front-end do projeto.
+### Executando frontend
+1. Entre na pasta __frontend-pi-um__
+- `cd pi-um/pi-um-univesp/frontend-pi-um`
+
+2. Escreva `yarn start`
 
 ## O que cada pasta representa
 - __frontend-pi-um__: Guarda todos os arquivos relacionados ao framework web React.
