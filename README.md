@@ -101,7 +101,7 @@
 - Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
 
 4. Entre na pasta __frontend-pi-um__ pelo terminal/prompt de comando
-- `cd pi-um-univesp/frontend-pi-um`.
+- `cd frontend-pi-um`.
 
 5. Crie a pasta node_modules (opcional se já feito antes e nenhuma dependência nova foi adicionada)
 - `yarn install`
