@@ -100,8 +100,8 @@
 - `git clone https://github.com/anabeatrizzz/pi-um-univesp.git`
 - Se aparecer a mensagem "Support for password authentication was removed" siga [este](https://stackoverflow.com/a/68781050/11665111) tutorial
 
-4. Entre na pasta __pi-um-univesp__ pelo terminal/prompt de comando
-- `cd pi-um-univesp`.
+4. Entre na pasta __frontend-pi-um__ pelo terminal/prompt de comando
+- `cd pi-um-univesp/frontend-pi-um`.
 
 5. Crie a pasta node_modules (opcional se já feito antes e nenhuma dependência nova foi adicionada)
 - `yarn install`

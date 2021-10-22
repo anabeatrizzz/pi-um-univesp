@@ -13,6 +13,7 @@ import Img2 from '../../assets/img2.png';
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Map from './Map'
 
 export default function Home() {
   const styles = useStyles();
@@ -154,7 +155,7 @@ export default function Home() {
           <p><b>Últimas doações cadastradas</b></p>
         </Grid>
 
-        <p>Mapa</p>
+        <Map />
       </main>
     </ThemeProvider>
   )
