@@ -11,6 +11,7 @@ export default function Header() {
       <Link className={styles.link} to="/">
         <img
           src={Logo}
+          alt="boa obra logo"
           width={100}
           height={100}
         />

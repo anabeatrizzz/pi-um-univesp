@@ -7,8 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter, // as rotas da aplicação
   Switch, // indica quais as entradas possiveis
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 ReactDOM.render(

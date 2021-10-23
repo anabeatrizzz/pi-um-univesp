@@ -1,7 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
-import { CSSProperties } from 'react'
-import { colors } from '../../assets/variables';
 
 const useStyles = makeStyles({
   firstGrid: {
