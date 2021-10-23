@@ -16,16 +16,16 @@ import IconButton from '@mui/material/IconButton';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import Pagination from '@mui/material/Pagination';
 
 export default function Donations() {
   const styles = useStyles();
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
   const breadcrumbs = [
-    <Link className={styles.link} to="#">
+    <Link className={styles.link} to="/">
       Início
     </Link>,
-    <Link className={styles.link} to="#">
+    <Link className={styles.link} to="/donations">
       Doações
     </Link>,
     <Link className={styles.link} to="#">
@@ -46,9 +46,11 @@ export default function Donations() {
             {
               categories.map((categorie) => {
                 return (
-                  <Typography component="div" variant="body1">
-                    <Box color={colors.mostarda} display='inline'>|</Box> {categorie}
-                  </Typography>
+                  <Link to="#" className={styles.link}>
+                    <Typography component="div" variant="body1">
+                      <Box color={colors.mostarda} display='inline'>|</Box> {categorie}
+                    </Typography>
+                  </Link>
                 )
               })
             }
@@ -60,35 +62,36 @@ export default function Donations() {
               justifyContent="space-between"
               direction="row"
               alignItems="center"
+              mb={2}
             >
-            <Grid item xs={6}>
-              <Stack spacing={2}>
-                <Breadcrumbs separator="›" aria-label="breadcrumb">
-                  {breadcrumbs}
-                </Breadcrumbs>
-              </Stack>
-            </Grid>
-            <Grid item xs={6}>
-            <InputBase
-              sx={{ ml: 1, flex: 1 }}
-              placeholder="Buscar"
-              inputProps={{ 'aria-label': 'buscar' }}
-            />
-            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-              <SearchIcon />
-            </IconButton>
-            </Grid>
+              <Grid item xs={8}>
+                <Stack spacing={2}>
+                  <Breadcrumbs separator="›" aria-label="breadcrumb">
+                    {breadcrumbs}
+                  </Breadcrumbs>
+                </Stack>
+              </Grid>
+              <Grid item xs={4}>
+              <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Buscar"
+                inputProps={{ 'aria-label': 'buscar' }}
+              />
+              <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                <SearchIcon />
+              </IconButton>
+              </Grid>
             </Grid>
 
             <Grid container spacing={2}>
               {
-                Array(10).fill(1).map(() => {
+                Array(6).fill(1).map(() => {
                   return (
                     <Grid item xs={6}>
                       <Card sx={{ display: 'flex', height: '100%' }}>
                         <CardMedia
                           component="img"
-                          sx={{ width: 151 }}
+                          sx={{ width: 190 }}
                           src="https://place-hold.it/500x500.png"
                         />
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -101,11 +104,28 @@ export default function Donations() {
                             </Typography>
 
                             <Typography
-                              variant="subtitle1"
+                              variant="subtitle2"
                               gutterBottom
                             >
                               20 sacos de cimento fechados, 2 sacos abertos, mas com ...
                             </Typography>
+
+                            <Typography
+                              variant="subtitle2"
+                              gutterBottom
+                            >
+                              12/04/2021 - 15:34
+                            </Typography>
+
+                            <Link className={styles.link} to="#">
+                              <Typography
+                                variant="subtitle2"
+                                gutterBottom
+                                align="right"
+                              >
+                                Ver +
+                              </Typography>
+                            </Link>
                           </CardContent>
                         </Box>
                       </Card>
@@ -115,7 +135,37 @@ export default function Donations() {
               }
             </Grid>
 
-            
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="flex-end"
+              mt={2}
+            >
+              <Grid item xs={2}>
+                <Link className={styles.link} to="#">
+                  <Typography align="right" variant="body2">
+                    Primeira página
+                  </Typography>
+                </Link>
+              </Grid>
+              <Grid item xs={4}>
+                <Pagination
+                  count={10}
+                  variant="outlined"
+                  shape="rounded"
+                  hideNextButton={true}
+                  hidePrevButton={true}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <Link className={styles.link} to="#">
+                  <Typography align="left" variant="body2">
+                    Última página
+                  </Typography>
+                </Link>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </main>

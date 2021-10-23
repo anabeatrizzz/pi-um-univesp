@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import { CSSProperties } from 'react'
+import { colors } from '../../assets/variables';
 
 const useStyles = makeStyles({
   firstGrid: {
@@ -14,8 +15,7 @@ const useStyles = makeStyles({
   container: {
     paddingTop: 30,
     paddingBottom: 30,
-    paddingLeft: 5,
-    //paddingRight: 30
+    paddingLeft: 5
   },
 
   link: {

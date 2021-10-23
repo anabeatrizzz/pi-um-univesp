@@ -23,12 +23,12 @@ export default function Header() {
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
           <NavLink className={styles.navLink} to="/donations">
-            <li className={styles.li}>Doe aqui</li>
+            <li className={styles.li}>Doações</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
           <NavLink className={styles.navLink} to="#">
-            <li className={styles.li}>Cadastre-se</li>
+            <li className={styles.li}>Cadastro</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
