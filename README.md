@@ -24,6 +24,7 @@
 5. Instale yarn com npm:
 - Acesse https://nodejs.org/en/download/ e siga as instruções para instalar NodeJS.
 - Escreva `node -v` e em seguida, `npm -v` para verificar se a instalação ocorreu com sucesso.
+- Escreva `npm install --global yarn`.
 
 6. Instale git
 - Acesse https://gitforwindows.org/ e clique em __Download__.
