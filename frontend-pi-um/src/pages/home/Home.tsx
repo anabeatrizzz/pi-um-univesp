@@ -1,19 +1,18 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import useStyles, { theme } from './Home.css'
+import useStyles, { button } from './Home.css'
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { ThemeProvider } from '@mui/material/styles';
 import Img1 from '../../assets/img1.png';
 import Img2 from '../../assets/img2.png';
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Map from './Map'
+import Map from '../../components/map'
 
 export default function Home() {
   const styles = useStyles();
@@ -24,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <main className={styles.container}>
         <Grid spacing={2} container>
           <Grid item xs={6}>
@@ -51,7 +50,7 @@ export default function Home() {
 
                   <Button
                     disableElevation
-                    color="yellowAndWhite"
+                    style={button}
                     variant="contained"
                   >
                     SAIBA MAIS
@@ -88,7 +87,7 @@ export default function Home() {
 
                   <Button
                     disableElevation
-                    color="yellowAndWhite"
+                    style={button}
                     variant="contained"
                   >
                     SAIBA MAIS
@@ -157,6 +156,6 @@ export default function Home() {
 
         <Map />
       </main>
-    </ThemeProvider>
+    </>
   )
 }
