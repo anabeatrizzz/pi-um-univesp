@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import useStyles, { button } from './Home.css'
+import useStyles from './Home.css'
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';

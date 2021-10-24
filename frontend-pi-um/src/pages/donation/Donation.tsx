@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 import Map from '../../components/map';
-import useStyles from './Donation.css'
+import useStyles, { modal } from './Donation.css'
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/button';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface IParams {
   id: string;
@@ -31,6 +34,10 @@ export default function Donation() {
       Doação n {params.id}
     </Link>
   ];
+
+  const [openModal, setOpenModal] = useState(false);
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
   return (
     <>
@@ -102,15 +109,88 @@ export default function Donation() {
               </Typography>
 
               <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="flex-start"
-            >
-              <Grid mr={5} pt={3} xs={12}>
-                <Button text='QUERO SABER MAIS!' />
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="flex-start"
+              >
+                <Grid mr={5} pt={3} xs={12}>
+                  <Button
+                    onClick={handleOpenModal}
+                    text='QUERO SABER MAIS!'
+                  />
+                </Grid>
+                <Modal
+                  disablePortal
+                  open={openModal}
+                  disableAutoFocus
+                >
+                  <Box sx={modal}>
+                    <Grid container
+                      direction="column"
+                      justifyContent="center"
+                      alignItems="flex-end"
+                    >
+                      <Grid item xs={12}>
+                        <CloseIcon
+                          style={{ cursor: 'pointer' }}
+                          onClick={handleCloseModal}
+                        />
+                      </Grid>
+                    </Grid>
+
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                    >
+                      Telefone:
+                    </Typography>
+
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                    >
+                      (13) 98765-4321
+                    </Typography>
+
+                    <br />
+
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                    >
+                      Com quem falar:
+                    </Typography>
+
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                    >
+                      Maria Edileuza
+                    </Typography>
+
+                    <br />
+
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                    >
+                      Código da doação:
+                    </Typography>
+
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                    >
+                      3334-telhas
+                    </Typography>
+
+                    <br />
+
+                    <Button href="mailto:email@email.com" text="Enviar e-mail" />
+                  </Box>
+                </Modal>
               </Grid>
-            </Grid>
             </Grid>
 
             <Grid mt={2} xs={12}>
