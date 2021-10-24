@@ -8,6 +8,7 @@ import useStyles from './Donation.css'
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Button from '../../components/button';
 
 interface IParams {
   id: string;
@@ -99,6 +100,17 @@ export default function Donation() {
               >
                 25/12/2021 - 15:43
               </Typography>
+
+              <Grid
+              container
+              direction="column"
+              justifyContent="center"
+              alignItems="flex-start"
+            >
+              <Grid mr={5} pt={3} xs={12}>
+                <Button text='QUERO SABER MAIS!' />
+              </Grid>
+            </Grid>
             </Grid>
 
             <Grid mt={2} xs={12}>
@@ -120,6 +132,17 @@ export default function Donation() {
             <Grid mt={2} xs={12}>
               <Map />
             </Grid>
+
+            {/* <Grid
+              container
+              direction="column"
+              justifyContent="flex-end"
+              alignItems="flex-end"
+            >
+              <Grid mr={5} pt={2} xs={12}>
+                <Button text='QUERO SABER MAIS!' />
+              </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </main>

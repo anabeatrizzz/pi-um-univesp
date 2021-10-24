@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
+import Button from '../../components/button';
 import Img1 from '../../assets/img1.png';
 import Img2 from '../../assets/img2.png';
 import "../../../node_modules/slick-carousel/slick/slick.css";
@@ -48,13 +48,7 @@ export default function Home() {
                     Aqui falaremos sobre o propósito do site, em que ele deve impactar e como as pessoas podem se sentir ao utilizar. Tanto quem doa, quanto quem recebe.
                   </Typography>
 
-                  <Button
-                    disableElevation
-                    style={button}
-                    variant="contained"
-                  >
-                    SAIBA MAIS
-                  </Button>
+                  <Button text="SAIBA MAIS" />
                 </CardContent>
               </Box>
             </Card>
@@ -85,13 +79,7 @@ export default function Home() {
                     Aqui falaremos sobre quem pode se beneficiar, quem pode doar, etc.
                   </Typography>
 
-                  <Button
-                    disableElevation
-                    style={button}
-                    variant="contained"
-                  >
-                    SAIBA MAIS
-                  </Button>
+                  <Button text="SAIBA MAIS" />
                 </CardContent>
               </Box>
             </Card>
