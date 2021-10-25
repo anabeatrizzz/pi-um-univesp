@@ -2,12 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Donations from './pages/donations';
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter, // as rotas da aplicação
+  Switch, // indica quais as entradas possiveis
+  Route,
+  Link
+} from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route exact path='/donations' component={Donations} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
