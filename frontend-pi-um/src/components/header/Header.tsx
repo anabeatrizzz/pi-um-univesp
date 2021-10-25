@@ -11,24 +11,25 @@ export default function Header() {
       <Link className={styles.link} to="/">
         <img
           src={Logo}
+          alt="boa obra logo"
           width={100}
           height={100}
         />
       </Link>
       <nav className={styles.nav}>
         <ul className={styles.ul}>
-          <NavLink className={styles.navLink} to="#">
+          <NavLink className={styles.navLink} to="/">
             <li className={styles.li}>Início</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
-          <NavLink className={styles.navLink} to="#">
-            <li className={styles.li}>Doe aqui</li>
+          <NavLink className={styles.navLink} to="/donations">
+            <li className={styles.li}>Doações</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
           <NavLink className={styles.navLink} to="#">
-            <li className={styles.li}>Cadastre-se</li>
+            <li className={styles.li}>Cadastro</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 

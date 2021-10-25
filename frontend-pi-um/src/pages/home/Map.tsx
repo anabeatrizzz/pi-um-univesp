@@ -29,8 +29,10 @@ export default function Map(){
       }
     );
 
+    // eslint-disable-next-line
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
+    // eslint-disable-next-line
     const ui = H.ui.UI.createDefault(map, defaultLayers);
     
     return () => { map.dispose() }

@@ -7,10 +7,10 @@ export default function Footer(){
   
   return (
     <footer className={styles.footer}>
-      <NavLink to="#" className={styles.paragraph}>
+      <NavLink to="/" className={styles.paragraph}>
         INÍCIO
       </NavLink>
-      <NavLink to="#" className={styles.paragraph}>
+      <NavLink to="/donations" className={styles.paragraph}>
         DOAÇÕES
       </NavLink>
       <NavLink to="#" className={styles.paragraph}>
