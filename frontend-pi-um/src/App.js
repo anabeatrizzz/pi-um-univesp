@@ -1,15 +1,12 @@
 import './App.css';
-import Header from './components/header';
-import Footer from './components/footer';
 import Home from './pages/home';
+import WrapperPage from './components/wrapper-page';
 
 function App() {
   return (
-    <>
-      <Header />
+    <WrapperPage>
       <Home />
-      <Footer />
-    </>
+    </WrapperPage>
   );
 }
 

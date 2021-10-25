@@ -24,7 +24,6 @@ export default function Home() {
 
   return (
     <>
-      <main className={styles.container}>
         <Grid spacing={2} container>
           <Grid item xs={6}>
             <Card sx={{ display: 'flex', height: '100%' }}>
@@ -143,7 +142,6 @@ export default function Home() {
         </Grid>
 
         <Map />
-      </main>
     </>
   )
 }
