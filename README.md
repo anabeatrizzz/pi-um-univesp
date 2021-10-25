@@ -114,10 +114,13 @@
 - __Windows__: `pi-um\Scripts\activate.bat`
 - __MacOS__: `source bin/activate`
 
-3. Execute o servidor:
+3. Entre na pasta __pi-um-univesp__
+- `cd pi-um-univesp`
+
+4. Execute o servidor:
 - `python manage.py runserver`.
 
-4. Acesse http://127.0.0.1:8000/
+5. Acesse http://127.0.0.1:8000/
 
 ### Executando frontend
 1. Entre na pasta __frontend-pi-um__
