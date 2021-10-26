@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Donations from './pages/donations';
 import Donation from './pages/donation';
+import SignUp from './pages/signup';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -24,9 +25,6 @@ const theme = createTheme({
           fontWeight: 700,
           marginBottom: 10,
         },
-        subtitle1: {
-          fontWeight: 700,
-        },
         body2: {
           fontWeight: 700,
         }
@@ -42,6 +40,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/donation/:id' component={Donation} />
+        <Route exact path='/signup' component={SignUp} />
       </Switch>
     </BrowserRouter>
   </ThemeProvider>,

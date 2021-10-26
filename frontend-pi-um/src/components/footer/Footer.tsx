@@ -13,7 +13,7 @@ export default function Footer(){
       <NavLink to="/donations" className={styles.paragraph}>
         DOAÇÕES
       </NavLink>
-      <NavLink to="#" className={styles.paragraph}>
+      <NavLink to="/signup" className={styles.paragraph}>
         CADASTRO
       </NavLink>
       <NavLink to="#" className={styles.paragraph}>

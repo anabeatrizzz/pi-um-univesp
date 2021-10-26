@@ -7,6 +7,7 @@ interface IButton {
   text: string;
   onClick?: Function;
   href?: string;
+  type?: string;
 }
 
 const Button: FC<IButton> = (props) => {
@@ -17,6 +18,7 @@ const Button: FC<IButton> = (props) => {
       style={button}
       variant="contained"
       onClick={props.onClick}
+      type={props.type}
     >
       {props.text}
     </MUIButton>
