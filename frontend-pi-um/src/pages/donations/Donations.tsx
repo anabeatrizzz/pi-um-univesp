@@ -8,9 +8,8 @@ import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
-import useStyles, { theme } from './Donations.css';
+import useStyles from './Donations.css';
 import { colors } from '../../assets/variables';
-import { ThemeProvider } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import Card from '@mui/material/Card';
@@ -34,7 +33,7 @@ export default function Donations() {
   ];
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Header />
       <main className={styles.container}>
         <Grid container>
@@ -85,7 +84,8 @@ export default function Donations() {
 
             <Grid container spacing={2}>
               {
-                Array(6).fill(1).map(() => {
+                Array(6).fill(1).map((_, index) => {
+                  const linkTo = `/donation/${index+1}`
                   return (
                     <Grid item xs={6}>
                       <Card sx={{ display: 'flex', height: '100%' }}>
@@ -117,7 +117,7 @@ export default function Donations() {
                               12/04/2021 - 15:34
                             </Typography>
 
-                            <Link className={styles.link} to="#">
+                            <Link className={styles.link} to={linkTo}>
                               <Typography
                                 variant="subtitle2"
                                 gutterBottom
@@ -139,7 +139,7 @@ export default function Donations() {
               container
               direction="row"
               justifyContent="flex-end"
-              alignItems="flex-end"
+              alignItems="center"
               mt={2}
             >
               <Grid item xs={2}>
@@ -170,6 +170,6 @@ export default function Donations() {
         </Grid>
       </main>
       <Footer />
-    </ThemeProvider>
+    </>
   )
 }

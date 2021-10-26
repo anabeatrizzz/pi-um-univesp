@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import { createTheme } from '@mui/material/styles';
+import { CSSProperties } from 'react';
 import { colors } from '../../assets/variables';
 
 const useStyles = makeStyles({
@@ -38,32 +38,10 @@ const useStyles = makeStyles({
   }
 })
 
-const theme = createTheme({
-  palette: {
-    yellowAndWhite: {
-      main: colors.mostarda,
-      contrastText: 'black',
-    },
-  },
-});
-
-declare module '@mui/material/styles' {
-  interface Palette {
-    yellowAndWhite: Palette['primary'];
-  }
-
-  // allow configuration using `createTheme`
-  interface PaletteOptions {
-    yellowAndWhite?: PaletteOptions['primary'];
-  }
-}
-
-// Update the Button's color prop options
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides {
-    yellowAndWhite: true;
-  }
+const button: CSSProperties = {
+  backgroundColor: colors.mostarda,
+  color: 'black'
 }
 
 export default useStyles
-export { theme }
+export { button }

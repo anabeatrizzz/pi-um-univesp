@@ -1,19 +1,18 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import useStyles, { theme } from './Home.css'
+import useStyles from './Home.css'
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import { ThemeProvider } from '@mui/material/styles';
+import Button from '../../components/button';
 import Img1 from '../../assets/img1.png';
 import Img2 from '../../assets/img2.png';
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Map from './Map'
+import Map from '../../components/map'
 
 export default function Home() {
   const styles = useStyles();
@@ -24,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <main className={styles.container}>
         <Grid spacing={2} container>
           <Grid item xs={6}>
@@ -49,13 +48,7 @@ export default function Home() {
                     Aqui falaremos sobre o propósito do site, em que ele deve impactar e como as pessoas podem se sentir ao utilizar. Tanto quem doa, quanto quem recebe.
                   </Typography>
 
-                  <Button
-                    disableElevation
-                    color="yellowAndWhite"
-                    variant="contained"
-                  >
-                    SAIBA MAIS
-                  </Button>
+                  <Button text="SAIBA MAIS" />
                 </CardContent>
               </Box>
             </Card>
@@ -86,13 +79,7 @@ export default function Home() {
                     Aqui falaremos sobre quem pode se beneficiar, quem pode doar, etc.
                   </Typography>
 
-                  <Button
-                    disableElevation
-                    color="yellowAndWhite"
-                    variant="contained"
-                  >
-                    SAIBA MAIS
-                  </Button>
+                  <Button text="SAIBA MAIS" />
                 </CardContent>
               </Box>
             </Card>
@@ -157,6 +144,6 @@ export default function Home() {
 
         <Map />
       </main>
-    </ThemeProvider>
+    </>
   )
 }

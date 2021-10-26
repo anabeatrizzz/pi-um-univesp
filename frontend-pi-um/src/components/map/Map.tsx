@@ -41,7 +41,7 @@ export default function Map(){
   return(
     <div
       ref={mapRef as React.RefObject<HTMLDivElement>}
-      style={{ height: "500px" }}
+      style={{ height: "200px", width: "980px" }}
     />
   )
 }

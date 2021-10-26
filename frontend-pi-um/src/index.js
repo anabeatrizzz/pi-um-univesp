@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Donations from './pages/donations';
+import Donation from './pages/donation';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter, // as rotas da aplicação
@@ -10,13 +12,39 @@ import {
   Route
 } from 'react-router-dom';
 
+const theme = createTheme({
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        h6: {
+          fontWeight: 700,
+          marginBottom: 1,
+        },
+        body1: {
+          fontWeight: 700,
+          marginBottom: 10,
+        },
+        subtitle1: {
+          fontWeight: 700,
+        },
+        body2: {
+          fontWeight: 700,
+        }
+      }
+    }
+  }
+})
+
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={App} />
-      <Route exact path='/donations' component={Donations} />
-    </Switch>
-  </BrowserRouter>,
+  <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route exact path='/donations' component={Donations} />
+        <Route exact path='/donation/:id' component={Donation} />
+      </Switch>
+    </BrowserRouter>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
