@@ -3,8 +3,11 @@ import Grid from '@mui/material/Grid';
 import WrapperPage from '../../components/wrapper-page';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import useStyles from './Contact.css';
 
 export default function Contact() {
+  const styles = useStyles();
+
   return (
     <WrapperPage>
       <Grid container>
@@ -20,11 +23,11 @@ export default function Contact() {
             <TextField
               id="nomeCompleto"
               label="Nome completo"
-              variant="outlined"
               placeholder="Nome completo"
               type="text"
               fullWidth
               required
+              className={styles.textField}
             />
           </Grid>
           <Grid item xs={5}>
@@ -35,9 +38,8 @@ export default function Contact() {
               placeholder="CPF"
               type="text"
               fullWidth
-              inputProps={{
-                maxlength: 11
-              }}
+              className={styles.textField}
+              inputProps={{ maxlength: 11 }}
             />
           </Grid>
           <Grid item xs={7}>
@@ -46,9 +48,10 @@ export default function Contact() {
               label="E-mail"
               variant="outlined"
               placeholder="E-mail"
-              type="text"
+              type="email"
               fullWidth
               required
+              className={styles.textField}
             />
           </Grid>
           <Grid item xs={5}>
@@ -57,8 +60,26 @@ export default function Contact() {
               label="Telefone"
               variant="outlined"
               placeholder="Telefone"
+              type="tel"
+              fullWidth
+              className={styles.textField}
+              inputProps={{ maxlength: 15 }}
+            />
+          </Grid>
+            
+          <Grid item xs={12}>
+            <Typography mb={0} variant="body1">
+              Mensagem
+            </Typography>
+            <TextField
+              id="message"
+              variant="outlined"
               type="text"
               fullWidth
+              multiline
+              className={styles.textField}
+              inputProps={{ maxlength: 200 }}
+              minRows={10}
             />
           </Grid>
         </Grid>

@@ -30,6 +30,15 @@ const theme = createTheme({
           fontWeight: 700,
         }
       }
+    },
+    MuiTextField: {
+      defaultProps: {
+        InputLabelProps: {
+          style: {
+            color: 'black'
+          }
+        }
+      }
     }
   }
 })
