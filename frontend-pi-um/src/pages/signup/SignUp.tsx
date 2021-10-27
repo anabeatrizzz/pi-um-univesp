@@ -118,7 +118,13 @@ export default function SignUp(){
                 * Campos obrigatórios
               </Typography>
             </Grid>
-            <Grid mr={5} container direction="row" justifyContent="flex-end" alignContent="flex-end">
+            <Grid
+              mr={5}
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignContent="flex-end"
+            >
               <Grid item xs={1}>
                 <Button type="submit" text="Cadastrar" />
               </Grid>

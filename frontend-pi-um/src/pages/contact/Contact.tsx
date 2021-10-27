@@ -4,6 +4,7 @@ import WrapperPage from '../../components/wrapper-page';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import useStyles from './Contact.css';
+import Button from '../../components/button';
 
 export default function Contact() {
   const styles = useStyles();
@@ -82,6 +83,18 @@ export default function Contact() {
               minRows={10}
             />
           </Grid>
+
+          <Grid
+            mt={2}
+            container
+            direction="row"
+            justifyContent="flex-end"
+            alignContent="flex-end"
+          >
+              <Grid item xs={1}>
+                <Button type="submit" text="enviar" />
+              </Grid>
+            </Grid>
         </Grid>
       </form>
     </WrapperPage>
