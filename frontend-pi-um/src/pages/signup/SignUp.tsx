@@ -5,9 +5,25 @@ import Typography from '@mui/material/Typography';
 import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import useStyles from './SignUp.css';
+import { useFormik } from 'formik';
+import validationSchema from './validationSchema'
 
 export default function SignUp(){
   const styles = useStyles();
+  const formik = useFormik({
+    initialValues: {
+      fullName: '',
+      cpf: '',
+      address: '',
+      number: 0,
+      complement: '',
+      neighborhood: '',
+      city: '',
+      cep: '',
+    },
+    validationSchema,
+    onSubmit: (values) => { alert(JSON.stringify(values, null, 2)) }
+  })
 
   return(
     <WrapperPage>
@@ -17,21 +33,26 @@ export default function SignUp(){
             Preencha seus dados e faça seu cadastro
           </Typography>
         </Grid>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={4}>
             <Grid item xs={7}>
               <TextField
+                id="fullName"
+                value={formik.values.fullName}
+                onChange={formik.handleChange}
+                error={formik.touched.fullName && Boolean(formik.errors.fullName)}
+                helperText={formik.touched.fullName && formik.errors.fullName}
                 label="Nome completo"
                 variant="outlined"
                 placeholder="Nome completo"
                 type="text"
                 fullWidth
-                required
                 className={styles.textField}
               />
             </Grid>
             <Grid item xs={5}>
               <TextField
+                id="cpf"
                 label="CPF"
                 variant="outlined"
                 placeholder="CPF"
@@ -39,13 +60,12 @@ export default function SignUp(){
                 fullWidth
                 required
                 className={styles.textField}
-                inputProps={{
-                  maxlength: 11
-                }}
+                inputProps={{ maxlength: 11 }}
               />
             </Grid>
             <Grid item xs={7}>
               <TextField
+                id="address"
                 label="Endereço (Rua / Av / Travessa)"
                 variant="outlined"
                 placeholder="Endereço (Rua / Av / Travessa)"
@@ -57,6 +77,7 @@ export default function SignUp(){
             </Grid>
             <Grid item xs={5}>
               <TextField
+                id="number"
                 label="Número"
                 variant="outlined"
                 placeholder="Número"
@@ -68,6 +89,7 @@ export default function SignUp(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="complement"
                 label="Complemento"
                 variant="outlined"
                 placeholder="Complemento"
@@ -79,6 +101,7 @@ export default function SignUp(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="neighborhood"
                 label="Bairro"
                 variant="outlined"
                 placeholder="Bairro"
@@ -91,6 +114,7 @@ export default function SignUp(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="city"
                 label="Cidade"
                 variant="outlined"
                 placeholder="Cidade"
@@ -103,6 +127,7 @@ export default function SignUp(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="cep"
                 label="CEP"
                 variant="outlined"
                 placeholder="CEP"
