@@ -172,7 +172,7 @@ export default function Donation() {
               </Grid>
               <Grid mt={2} xs={12}>
                 <Typography
-                  variant="body1"
+                  variant="subtitle1"
                   gutterBottom
                 >
                   Descrição:

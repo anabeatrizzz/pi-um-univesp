@@ -6,8 +6,6 @@ import Donations from './pages/donations';
 import Donation from './pages/donation';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
-import UpdateData from './pages/update-data';
-import { colors } from './assets/variables'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -37,18 +35,8 @@ const theme = createTheme({
       defaultProps: {
         InputLabelProps: {
           style: {
-            color: colors.grey
+            color: 'black'
           }
-        }
-      }
-    },
-    MuiFormLabel: {
-      styleOverrides: {
-        asterisk: {
-          color: colors.red
-        },
-        error: {
-          color: colors.red
         }
       }
     }
@@ -64,7 +52,6 @@ ReactDOM.render(
         <Route exact path='/donation/:id' component={Donation} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/contact' component={Contact} />
-        <Route exact path='/update-data' component={UpdateData} />
       </Switch>
     </BrowserRouter>
   </ThemeProvider>,

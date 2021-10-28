@@ -114,7 +114,7 @@ export default function SignUp(){
               />
             </Grid>
             <Grid alignSelf="center" item xs={8}>
-              <Typography className={styles.typography} variant="body1">
+              <Typography variant="body1">
                 * Campos obrigatórios
               </Typography>
             </Grid>
