@@ -3,63 +3,19 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-//import { yellow } from '@mui/material/colors';
+//import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
+//import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import  Button from '../../components/button';
+//import Link from '@mui/material/Link';
+import useStyles from './Login.css';
 import WrapperPage from '../../components/wrapper-page';
 
-/*const Buttonsize = styled(Button)({
-  padding: 20,
-  lineHeight: 1.0657,
-
-}) */
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(0),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
-const theme = createTheme({
-  palette: {
-    neutral: {
-      main: '#FBD528',
-      contrastText: '#000000',
-    },
-    secondary: {
-      main: '#B9BAAC',
-      //contrastText: '#B9BAAC',
-      },
-    },
-});
-
-declare module '@mui/material/styles' {
-  interface Palette {
-    neutral: Palette['primary'];
-    secondary: Palette['secondary']
-  }
-
-  // allow configuration using `createTheme`
-  interface PaletteOptions {
-    neutral?: PaletteOptions['primary'];
-    secondary?: PaletteOptions['secondary']
-  }
-}
-
-// Update the Button's color prop options
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides {
-    neutral: true;
-    secondary: true;
-  }
-}
 
 
 export default function Login(){
+  const styles=useStyles()
  return(
   <WrapperPage>
     <Grid container item xs={12}>
@@ -74,24 +30,24 @@ export default function Login(){
             <Grid container direction='column' columns={6} justifyContent='center' alignItems='center' spacing={6} > 
               <Grid item xs>
                 <Box sx={{width: 310}}>  
-                  <TextField fullWidth id="email" label="E-mail" ></TextField>
+                  <TextField fullWidth id="email" label="E-mail" type='email'/>
                 </Box>
               </Grid>
-              <Grid item xs>
+              <Grid item xs mb={2}>
                 <Box sx={{width: 310}}>
-                  <TextField fullWidth id="senha" label="Senha" ></TextField>
+                  <TextField fullWidth id="senha" label="Senha" type='password'/>
                 </Box>
               </Grid>
-              <Grid item xs>
-                <ThemeProvider theme={theme}> 
-                  <Button id="login" size="large" children="LOGIN" color='neutral' variant="contained" href="#"></Button>
-                </ThemeProvider>
+              <Grid container direction="column" justifyContent="center" alignItems="stretch" mb={2}>
+                <Button type="submit" text="Login"  />
               </Grid>
-              <Grid xs>
-                <ThemeProvider theme={theme}>
-                  <Button variant="text" size="small" color='secondary' href="#">Esqueceu a senha?</Button>
-                  <Button variant="text" size="small" color='secondary' href="#">Cadastre-se!</Button>
-                </ThemeProvider>
+              <Grid container justifyContent="center" alignItems="center" direction="row" columns={2} mb={2} spacing={11}>
+                <Grid item>
+                  <Link className={styles.link} to="#">Esqueceu a senha?</Link>
+                </Grid>
+                <Grid item>
+                  <Link className={styles.link} to="#">Cadastre-se!</Link>
+                </Grid>
               </Grid>
             </Grid> 
         </Card>
