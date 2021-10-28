@@ -8,6 +8,6 @@ const useStyles = makeStyles({
       borderWidth: 1
     }
   }
-});
+})
 
 export default useStyles

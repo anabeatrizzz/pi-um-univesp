@@ -1,20 +1,20 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import WrapperPage from '../../components/wrapper-page';
-import Button from '../../components/button';
-import useStyles from './SignUp.css';
+import React from 'react'
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import WrapperPage from '../../components/wrapper-page'
+import useStyles from './UpdateData.css'
+import Button from '../../components/button'
 
-export default function SignUp(){
+export default function UpdateData(){
   const styles = useStyles();
-
+  
   return(
     <WrapperPage>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant='body1'>
-            Preencha seus dados e faça seu cadastro
+          <Typography variant="body1">
+            Atualize aqui os seus dados cadastrais
           </Typography>
         </Grid>
         <form>
@@ -23,6 +23,7 @@ export default function SignUp(){
               <TextField
                 label="Nome completo"
                 variant="outlined"
+                value="Maria Cecília da Silva"
                 placeholder="Nome completo"
                 type="text"
                 fullWidth
@@ -35,6 +36,7 @@ export default function SignUp(){
                 label="CPF"
                 variant="outlined"
                 placeholder="CPF"
+                value="423.338.881-29"
                 type="text"
                 fullWidth
                 required
@@ -48,6 +50,7 @@ export default function SignUp(){
               <TextField
                 label="Endereço (Rua / Av / Travessa)"
                 variant="outlined"
+                value="Avenida das Flores"
                 placeholder="Endereço (Rua / Av / Travessa)"
                 type="text"
                 fullWidth
@@ -61,6 +64,7 @@ export default function SignUp(){
                 variant="outlined"
                 placeholder="Número"
                 type="number"
+                value={755}
                 fullWidth
                 required
                 className={styles.textField}
@@ -71,6 +75,7 @@ export default function SignUp(){
                 label="Complemento"
                 variant="outlined"
                 placeholder="Complemento"
+                value="Fundos"
                 type="text"
                 fullWidth
                 inputProps={{ maxlength: 20 }}
@@ -83,6 +88,7 @@ export default function SignUp(){
                 variant="outlined"
                 placeholder="Bairro"
                 type="text"
+                value="Savoy"
                 fullWidth
                 required
                 inputProps={{ maxlength: 20 }}
@@ -94,6 +100,7 @@ export default function SignUp(){
                 label="Cidade"
                 variant="outlined"
                 placeholder="Cidade"
+                value="Itanhaém"
                 type="text"
                 fullWidth
                 required
@@ -107,16 +114,12 @@ export default function SignUp(){
                 variant="outlined"
                 placeholder="CEP"
                 type="text"
+                value="11740-000"
                 fullWidth
                 required
                 inputProps={{ maxlength: 8 }}
                 className={styles.textField}
               />
-            </Grid>
-            <Grid alignSelf="center" item xs={8}>
-              <Typography className={styles.typography} variant="body1">
-                * Campos obrigatórios
-              </Typography>
             </Grid>
             <Grid
               mr={5}
@@ -126,7 +129,7 @@ export default function SignUp(){
               alignContent="flex-end"
             >
               <Grid item xs={1}>
-                <Button type="submit" text="Cadastrar" />
+                <Button type="submit" text="Salvar" />
               </Grid>
             </Grid>
           </Grid>

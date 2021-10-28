@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import useStyles from './Contact.css';
 import Button from '../../components/button';
+import { colors } from '../../assets/variables';
 
 export default function Contact() {
   const styles = useStyles();
@@ -69,11 +70,12 @@ export default function Contact() {
           </Grid>
             
           <Grid item xs={12}>
-            <Typography mb={0} variant="body1">
-              Mensagem
+            <Typography mb={1} variant="body1">
+              Mensagem <b style={{ color: colors.red }}>*</b>
             </Typography>
             <TextField
               id="message"
+              required
               variant="outlined"
               type="text"
               fullWidth
