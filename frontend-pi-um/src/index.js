@@ -5,6 +5,7 @@ import App from './App';
 import Donations from './pages/donations';
 import Donation from './pages/donation';
 import SignUp from './pages/signup';
+import Contact from './pages/contact';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -29,6 +30,15 @@ const theme = createTheme({
           fontWeight: 700,
         }
       }
+    },
+    MuiTextField: {
+      defaultProps: {
+        InputLabelProps: {
+          style: {
+            color: 'black'
+          }
+        }
+      }
     }
   }
 })
@@ -41,6 +51,7 @@ ReactDOM.render(
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/donation/:id' component={Donation} />
         <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/contact' component={Contact} />
       </Switch>
     </BrowserRouter>
   </ThemeProvider>,

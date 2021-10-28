@@ -4,8 +4,11 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
+import useStyles from './SignUp.css';
 
 export default function SignUp(){
+  const styles = useStyles();
+
   return(
     <WrapperPage>
       <Grid container>
@@ -24,6 +27,7 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
+                className={styles.textField}
               />
             </Grid>
             <Grid item xs={5}>
@@ -34,6 +38,10 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
+                className={styles.textField}
+                inputProps={{
+                  maxlength: 11
+                }}
               />
             </Grid>
             <Grid item xs={7}>
@@ -44,6 +52,7 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
+                className={styles.textField}
               />
             </Grid>
             <Grid item xs={5}>
@@ -54,6 +63,7 @@ export default function SignUp(){
                 type="number"
                 fullWidth
                 required
+                className={styles.textField}
               />
             </Grid>
             <Grid item xs={4}>
@@ -63,6 +73,8 @@ export default function SignUp(){
                 placeholder="Complemento"
                 type="text"
                 fullWidth
+                inputProps={{ maxlength: 20 }}
+                className={styles.textField}
               />
             </Grid>
             <Grid item xs={4}>
@@ -73,6 +85,8 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
+                inputProps={{ maxlength: 20 }}
+                className={styles.textField}
               />
             </Grid>
             <Grid item xs={4}>
@@ -83,6 +97,8 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
+                inputProps={{ maxlength: 30 }}
+                className={styles.textField}
               />
             </Grid>
             <Grid item xs={4}>
@@ -93,6 +109,8 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
+                inputProps={{ maxlength: 8 }}
+                className={styles.textField}
               />
             </Grid>
             <Grid alignSelf="center" item xs={8}>
@@ -100,7 +118,13 @@ export default function SignUp(){
                 * Campos obrigatórios
               </Typography>
             </Grid>
-            <Grid mr={5} container direction="row" justifyContent="flex-end" alignContent="flex-end">
+            <Grid
+              mr={5}
+              container
+              direction="row"
+              justifyContent="flex-end"
+              alignContent="flex-end"
+            >
               <Grid item xs={1}>
                 <Button type="submit" text="Cadastrar" />
               </Grid>

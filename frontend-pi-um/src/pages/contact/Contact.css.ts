@@ -6,6 +6,6 @@ const useStyles = makeStyles({
       borderColor: 'black'
     }
   }
-})
+});
 
 export default useStyles
