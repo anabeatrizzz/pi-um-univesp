@@ -38,7 +38,7 @@ export default function Header() {
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
-          <NavLink className={styles.navLink} to="#">
+          <NavLink className={styles.navLink} to="/login">
             <li className={styles.li}>Login</li>
           </NavLink>
         </ul>
