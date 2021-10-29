@@ -33,7 +33,7 @@ export default function Header() {
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
-          <NavLink className={styles.navLink} to="#">
+          <NavLink className={styles.navLink} to="/contact">
             <li className={styles.li}>Contato</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>

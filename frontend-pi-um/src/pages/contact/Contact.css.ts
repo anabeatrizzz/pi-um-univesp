@@ -7,10 +7,7 @@ const useStyles = makeStyles({
       borderColor: colors.grey,
       borderWidth: 1
     }
-  },
-  typography: {
-    color: colors.red
   }
-})
+});
 
 export default useStyles

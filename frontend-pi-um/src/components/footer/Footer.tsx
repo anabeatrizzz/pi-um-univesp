@@ -16,7 +16,7 @@ export default function Footer(){
       <NavLink to="/signup" className={styles.paragraph}>
         CADASTRO
       </NavLink>
-      <NavLink to="#" className={styles.paragraph}>
+      <NavLink to="/contact" className={styles.paragraph}>
         CONTATO
       </NavLink>
       <NavLink to="/login" className={styles.paragraph}>
