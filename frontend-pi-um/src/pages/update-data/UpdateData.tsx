@@ -1,5 +1,5 @@
 import React from 'react'
-import TextField from '@mui/material/TextField'
+import TextField from '../../components/textfield'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import WrapperPage from '../../components/wrapper-page'
@@ -28,7 +28,7 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 required
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={5}>
@@ -40,7 +40,7 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 required
-                className={styles.textField}
+                
                 inputProps={{
                   maxlength: 11
                 }}
@@ -55,7 +55,7 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 required
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={5}>
@@ -67,7 +67,7 @@ export default function UpdateData(){
                 value={755}
                 fullWidth
                 required
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -79,7 +79,7 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 inputProps={{ maxlength: 20 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -92,7 +92,7 @@ export default function UpdateData(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 20 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -105,7 +105,7 @@ export default function UpdateData(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 30 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -118,7 +118,7 @@ export default function UpdateData(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 8 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid

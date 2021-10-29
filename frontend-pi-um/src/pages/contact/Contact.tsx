@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import WrapperPage from '../../components/wrapper-page';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
+import TextField from '../../components/textfield';
 import useStyles from './Contact.css';
 import Button from '../../components/button';
 import { colors } from '../../assets/variables';
@@ -29,7 +29,7 @@ export default function Contact() {
               type="text"
               fullWidth
               required
-              className={styles.textField}
+              
             />
           </Grid>
           <Grid item xs={5}>
@@ -40,7 +40,7 @@ export default function Contact() {
               placeholder="CPF"
               type="text"
               fullWidth
-              className={styles.textField}
+              
               inputProps={{ maxlength: 11 }}
             />
           </Grid>
@@ -53,7 +53,7 @@ export default function Contact() {
               type="email"
               fullWidth
               required
-              className={styles.textField}
+              
             />
           </Grid>
           <Grid item xs={5}>
@@ -64,7 +64,7 @@ export default function Contact() {
               placeholder="Telefone"
               type="tel"
               fullWidth
-              className={styles.textField}
+              
               inputProps={{ maxlength: 15 }}
             />
           </Grid>
@@ -80,7 +80,7 @@ export default function Contact() {
               type="text"
               fullWidth
               multiline
-              className={styles.textField}
+              
               inputProps={{ maxlength: 200 }}
               minRows={10}
             />
