@@ -19,7 +19,7 @@ export default function Footer(){
       <NavLink to="/contact" className={styles.paragraph}>
         CONTATO
       </NavLink>
-      <NavLink to="#" className={styles.paragraph}>
+      <NavLink to="/login" className={styles.paragraph}>
         LOGIN
       </NavLink>
     </footer>
