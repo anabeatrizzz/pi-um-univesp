@@ -47,7 +47,7 @@ export default function SignUp(){
                 placeholder="Nome completo"
                 type="text"
                 fullWidth
-                
+                required
               />
             </Grid>
             <Grid item xs={5}>
@@ -59,7 +59,6 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
-                
                 inputProps={{ maxlength: 11 }}
               />
             </Grid>
@@ -72,7 +71,6 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
-                
               />
             </Grid>
             <Grid item xs={5}>
@@ -84,7 +82,6 @@ export default function SignUp(){
                 type="number"
                 fullWidth
                 required
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -96,7 +93,6 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 inputProps={{ maxlength: 20 }}
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -109,7 +105,6 @@ export default function SignUp(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 20 }}
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -122,7 +117,6 @@ export default function SignUp(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 30 }}
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -135,7 +129,6 @@ export default function SignUp(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 8 }}
-                
               />
             </Grid>
             <Grid alignSelf="center" item xs={8}>
