@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
+import TextField from '../../components/textfield';
 import Typography from '@mui/material/Typography';
 import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
@@ -47,7 +47,7 @@ export default function SignUp(){
                 placeholder="Nome completo"
                 type="text"
                 fullWidth
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={5}>
@@ -59,7 +59,7 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
-                className={styles.textField}
+                
                 inputProps={{ maxlength: 11 }}
               />
             </Grid>
@@ -72,7 +72,7 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 required
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={5}>
@@ -84,7 +84,7 @@ export default function SignUp(){
                 type="number"
                 fullWidth
                 required
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -96,7 +96,7 @@ export default function SignUp(){
                 type="text"
                 fullWidth
                 inputProps={{ maxlength: 20 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -109,7 +109,7 @@ export default function SignUp(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 20 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -122,7 +122,7 @@ export default function SignUp(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 30 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid item xs={4}>
@@ -135,7 +135,7 @@ export default function SignUp(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 8 }}
-                className={styles.textField}
+                
               />
             </Grid>
             <Grid alignSelf="center" item xs={8}>
