@@ -10,6 +10,7 @@ import UpdateData from './pages/update-data';
 import { colors } from './assets/variables'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
+import Login from './pages/login';
 import {
   BrowserRouter, // as rotas da aplicação
   Switch, // indica quais as entradas possiveis
@@ -63,6 +64,7 @@ ReactDOM.render(
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/donation/:id' component={Donation} />
         <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/contact' component={Contact} />
         <Route exact path='/update-data' component={UpdateData} />
       </Switch>
