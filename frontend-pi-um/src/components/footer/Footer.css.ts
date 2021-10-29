@@ -5,7 +5,11 @@ const useStyles = makeStyles({
   footer: {
     backgroundColor: 'black',
     display: 'flex',
-    paddingLeft: 50
+    paddingLeft: 50,
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    left: 0,
   },
 
   paragraph: {
