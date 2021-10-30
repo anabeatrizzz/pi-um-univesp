@@ -3,12 +3,9 @@ import TextField from '../../components/textfield'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import WrapperPage from '../../components/wrapper-page'
-import useStyles from './UpdateData.css'
 import Button from '../../components/button'
 
 export default function UpdateData(){
-  const styles = useStyles();
-  
   return(
     <WrapperPage>
       <Grid container>

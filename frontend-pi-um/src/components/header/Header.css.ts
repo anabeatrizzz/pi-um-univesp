@@ -1,3 +1,4 @@
+import { PaperProps } from '@mui/material/Paper';
 import { makeStyles } from '@mui/styles';
 import { colors } from '../../assets/variables';
 
@@ -9,6 +10,15 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%'
+  },
+
+  typographyLink: {
+    color: colors.mostarda,
+    textDecoration: 'none',
+    textAlign: 'center',
+    marginBottom: -12,
+    marginLeft: 10,
+    marginRight: 10
   },
   
   link: {
@@ -55,4 +65,15 @@ const useStyles = makeStyles({
   }
 })
 
+const paperProps: Partial<PaperProps<"div", {}>> = {
+  elevation: 0,
+  square: true,
+  sx: {
+    bgcolor: 'black',
+    marginTop: 6,
+    borderRadius: 0
+  } 
+}
+
 export default useStyles
+export { paperProps }

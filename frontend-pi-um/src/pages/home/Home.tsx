@@ -13,6 +13,7 @@ import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Map from '../../components/map'
+import WrapperPage from '../../components/wrapper-page';
 
 export default function Home() {
   const styles = useStyles();
@@ -23,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <WrapperPage>
         <Grid spacing={2} container>
           <Grid item xs={6}>
             <Card sx={{ display: 'flex', height: '100%' }}>
@@ -142,6 +143,6 @@ export default function Home() {
         </Grid>
 
         <Map />
-    </>
+    </WrapperPage>
   )
 }
