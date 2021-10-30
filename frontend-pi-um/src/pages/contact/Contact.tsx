@@ -3,13 +3,10 @@ import Grid from '@mui/material/Grid';
 import WrapperPage from '../../components/wrapper-page';
 import Typography from '@mui/material/Typography';
 import TextField from '../../components/textfield';
-import useStyles from './Contact.css';
 import Button from '../../components/button';
 import { colors } from '../../assets/variables';
 
 export default function Contact() {
-  const styles = useStyles();
-
   return (
     <WrapperPage>
       <Grid container>

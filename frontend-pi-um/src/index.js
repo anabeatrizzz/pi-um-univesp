@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Home from './pages/home';
 import Donations from './pages/donations';
 import Donation from './pages/donation';
 import SignUp from './pages/signup';
@@ -48,7 +48,7 @@ const theme = createTheme({
         asterisk: {
           color: colors.red
         },
-        error: {
+        "&.Mui-error": {
           color: colors.red
         }
       }
@@ -60,7 +60,7 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Home} />
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/donation/:id' component={Donation} />
         <Route exact path='/signup' component={SignUp} />

@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState, MouseEvent } from 'react';
 import Logo from '../../assets/logo.png';
 import clsx from 'clsx';
-import useStyles from './Header.css';
-import { Link, NavLink } from 'react-router-dom'
+import useStyles, { paperProps } from './Header.css';
+import { Link, NavLink } from 'react-router-dom';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 
 export default function Header() {
   const styles = useStyles();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  function handleNavLinkClick(event: MouseEvent<HTMLElement>){
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  }
+
+  function handleCloseMenu(){
+    setAnchorEl(null);
+  };
+
   return (
     <header className={styles.header}>
       <Link className={styles.link} to="/">
         <img
           src={Logo}
-          alt="boa obra logo"
+          alt="obra social logo"
           width={100}
           height={100}
         />
@@ -43,6 +57,26 @@ export default function Header() {
           </NavLink>
         </ul>
       </nav>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        PaperProps={paperProps}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        onClose={handleCloseMenu}
+        onClick={handleCloseMenu}
+      >
+        <MenuItem disableGutters>
+          <Link className={styles.typographyLink} to="#">
+            <Typography align="center">Doações cadastradas</Typography>
+          </Link>
+        </MenuItem>
+        <MenuItem disableGutters>
+          <Link className={styles.typographyLink} to="#">
+            <Typography align="center">Editar dados cadastrais</Typography>
+          </Link>
+        </MenuItem>
+      </Menu>
     </header>
   )
 }
