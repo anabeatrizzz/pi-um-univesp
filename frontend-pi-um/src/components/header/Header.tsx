@@ -9,13 +9,8 @@ import Typography from '@mui/material/Typography';
 
 export default function Header() {
   const styles = useStyles();
-  const [name, setName] = useState('Login');
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl)
-
-  function handleHeaderClick(){
-    setName('Ana');
-  }
+  const open = Boolean(anchorEl);
 
   function handleNavLinkClick(event: MouseEvent<HTMLElement>){
     setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -26,7 +21,7 @@ export default function Header() {
   };
 
   return (
-    <header onClick={handleHeaderClick} className={styles.header}>
+    <header className={styles.header}>
       <Link className={styles.link} to="/">
         <img
           src={Logo}
@@ -57,17 +52,9 @@ export default function Header() {
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
 
-          {
-            name !== "Login" ? (
-              <NavLink onClick={handleNavLinkClick} className={styles.navLink} to="#">
-                <li className={styles.li}>{name}</li>
-              </NavLink>
-            ) : (
-              <NavLink className={styles.navLink} to="/login">
-                <li className={styles.li}>Login</li>
-              </NavLink>
-            )
-          }
+          <NavLink className={styles.navLink} to="/login">
+            <li className={styles.li}>Login</li>
+          </NavLink>
         </ul>
       </nav>
       <Menu
