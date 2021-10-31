@@ -17,3 +17,4 @@ const TextField: FC<TTextField> = (props) => {
 }
 
 export default TextField
+export type { TTextField }

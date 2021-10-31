@@ -6,10 +6,9 @@ import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
-import signUpValidationSchema from './signUpValidationSchema';
-import InputMask from "react-input-mask";
+import signUpValidationSchema from '../../formik/signUpValidationSchema';
 
-export default function SignUp(){
+export default function SignUp() {
   const styles = useStyles();
   const formik = useFormik({
     initialValues: {
@@ -23,10 +22,10 @@ export default function SignUp(){
       cep: '',
     },
     validationSchema: signUpValidationSchema,
-    onSubmit: () => {}
+    onSubmit: () => { }
   })
 
-  return(
+  return (
     <WrapperPage>
       <Grid container>
         <Grid item xs={12}>
@@ -52,25 +51,20 @@ export default function SignUp(){
               />
             </Grid>
             <Grid item xs={5}>
-              {/* <InputMask
-                mask="999.999.999-99"
+              <TextField
+                label="CPF"
+                id="cpf"
                 value={formik.values.cpf}
                 onChange={formik.handleChange}
-                alwaysShowMask={true}
-              > */}
-                <TextField
-                  id="cpf"
-                  label="CPF"
-                  error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-                  helperText={formik.touched.cpf && formik.errors.cpf}
-                  variant="outlined"
-                  placeholder="CPF"
-                  type="text"
-                  fullWidth
-                  required
-                  inputProps={{ maxlength: 11 }}
-                />
-              {/* </InputMask> */}
+                error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                helperText={formik.touched.cpf && formik.errors.cpf}
+                variant="outlined"
+                placeholder="CPF"
+                type="text"
+                fullWidth
+                required
+                inputProps={{ maxlength: 11 }}
+              />
             </Grid>
             <Grid item xs={7}>
               <TextField
