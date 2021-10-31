@@ -7,23 +7,23 @@ import Button from '../../components/button'
 import signUpValidationSchema from '../../formik/signUpValidationSchema';
 import { useFormik } from 'formik';
 
-export default function UpdateRegisterData(){
+export default function UpdateRegisterData() {
   const formik = useFormik({
     initialValues: {
-      fullName: '',
-      cpf: '',
-      address: '',
+      fullName: 'Maria Cecília da Silva',
+      cpf: '423.338.881-29',
+      address: 'Avenida das Flores',
       number: '755',
-      complement: '',
-      neighborhood: '',
-      city: '',
-      cep: '',
+      complement: 'Casa',
+      neighborhood: 'Gaivota',
+      city: 'Itanhaém',
+      cep: '11740-000',
     },
     validationSchema: signUpValidationSchema,
-    onSubmit: () => {}
+    onSubmit: () => { }
   })
 
-  return(
+  return (
     <WrapperPage>
       <Grid container>
         <Grid item xs={12}>
@@ -35,9 +35,13 @@ export default function UpdateRegisterData(){
           <Grid container spacing={4}>
             <Grid item xs={7}>
               <TextField
+                id="fullName"
                 label="Nome completo"
                 variant="outlined"
-                value="Maria Cecília da Silva"
+                value={formik.values.fullName}
+                onChange={formik.handleChange}
+                error={formik.touched.fullName && Boolean(formik.errors.fullName)}
+                helperText={formik.touched.fullName && formik.errors.fullName}
                 placeholder="Nome completo"
                 type="text"
                 fullWidth
@@ -46,10 +50,14 @@ export default function UpdateRegisterData(){
             </Grid>
             <Grid item xs={5}>
               <TextField
+                id="cpf"
                 label="CPF"
                 variant="outlined"
                 placeholder="CPF"
-                value="423.338.881-29"
+                value={formik.values.cpf}
+                onChange={formik.handleChange}
+                error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                helperText={formik.touched.cpf && formik.errors.cpf}
                 type="text"
                 fullWidth
                 required
@@ -58,9 +66,13 @@ export default function UpdateRegisterData(){
             </Grid>
             <Grid item xs={7}>
               <TextField
+                id="address"
                 label="Endereço (Rua / Av / Travessa)"
                 variant="outlined"
-                value="Avenida das Flores"
+                value={formik.values.address}
+                onChange={formik.handleChange}
+                error={formik.touched.address && Boolean(formik.errors.address)}
+                helperText={formik.touched.address && formik.errors.address}
                 placeholder="Endereço (Rua / Av / Travessa)"
                 type="text"
                 fullWidth
@@ -68,7 +80,7 @@ export default function UpdateRegisterData(){
               />
             </Grid>
             <Grid item xs={5}>
-            <TextField
+              <TextField
                 id="number"
                 label="Número"
                 inputProps={{ pattern: "^[0-9]+$" }}
@@ -85,10 +97,14 @@ export default function UpdateRegisterData(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="complement"
                 label="Complemento"
                 variant="outlined"
                 placeholder="Complemento"
-                value="Fundos"
+                value={formik.values.complement}
+                onChange={formik.handleChange}
+                error={formik.touched.complement && Boolean(formik.errors.complement)}
+                helperText={formik.touched.complement && formik.errors.complement}
                 type="text"
                 fullWidth
                 inputProps={{ maxlength: 20 }}
@@ -96,11 +112,15 @@ export default function UpdateRegisterData(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="neighborhood"
                 label="Bairro"
                 variant="outlined"
                 placeholder="Bairro"
                 type="text"
-                value="Savoy"
+                value={formik.values.neighborhood}
+                onChange={formik.handleChange}
+                error={formik.touched.neighborhood && Boolean(formik.errors.neighborhood)}
+                helperText={formik.touched.neighborhood && formik.errors.neighborhood}
                 fullWidth
                 required
                 inputProps={{ maxlength: 20 }}
@@ -108,10 +128,14 @@ export default function UpdateRegisterData(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="city"
                 label="Cidade"
                 variant="outlined"
                 placeholder="Cidade"
-                value="Itanhaém"
+                value={formik.values.city}
+                onChange={formik.handleChange}
+                error={formik.touched.city && Boolean(formik.errors.city)}
+                helperText={formik.touched.city && formik.errors.city}
                 type="text"
                 fullWidth
                 required
@@ -120,25 +144,36 @@ export default function UpdateRegisterData(){
             </Grid>
             <Grid item xs={4}>
               <TextField
+                id="cep"
                 label="CEP"
                 variant="outlined"
                 placeholder="CEP"
                 type="text"
-                value="11740-000"
+                value={formik.values.cep}
+                onChange={formik.handleChange}
+                error={formik.touched.cep && Boolean(formik.errors.cep)}
+                helperText={formik.touched.cep && formik.errors.cep}
                 fullWidth
                 required
                 inputProps={{ maxlength: 8 }}
               />
             </Grid>
             <Grid
-              mr={5}
               container
               direction="row"
               justifyContent="flex-end"
-              alignContent="flex-end"
+              alignItems="flex-end"
+              spacing={2}
             >
-              <Grid item xs={1}>
+              <Grid item mt={2} xs={3}>
+                <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="stretch"
+              >
                 <Button type="submit" text="Salvar" />
+              </Grid>
               </Grid>
             </Grid>
           </Grid>

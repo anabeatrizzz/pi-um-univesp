@@ -69,7 +69,7 @@ ReactDOM.render(
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/contact' component={Contact} />
-        <Route exact path='/update-data' component={UpdateRegisterData} />
+        <Route exact path='/update-register-data' component={UpdateRegisterData} />
         <Route exact path='/register-donation' component={RegisterDonation} />
         <Route exact path='/edit-donation' component={EditDonation} />
         <Route exact component={NotFound} />

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { FC } from 'react';
-import { Button as MUIButton } from '@mui/material';
+import { Button as MUIButton, ButtonTypeMap, ExtendButtonBase } from '@mui/material';
 import { button } from './Button.css';
 
 interface IButton {

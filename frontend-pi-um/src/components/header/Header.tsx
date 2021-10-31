@@ -72,7 +72,7 @@ export default function Header() {
           </Link>
         </MenuItem>
         <MenuItem disableGutters>
-          <Link className={styles.typographyLink} to="/update-data">
+          <Link className={styles.typographyLink} to="/update-register-data">
             <Typography align="center">Editar dados cadastrais</Typography>
           </Link>
         </MenuItem>
