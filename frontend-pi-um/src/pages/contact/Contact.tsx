@@ -11,7 +11,7 @@ export default function Contact() {
     <WrapperPage>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant="body1">
+          <Typography fontSize={24} variant="body1">
             Entre em contato conosco
           </Typography>
         </Grid>

@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '../../components/textfield';
@@ -6,13 +6,13 @@ import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
-import { colors } from '../../assets/variables';
 import { useDropzone } from 'react-dropzone';
+import { colors } from '../../assets/variables';
 
-export default function RegisterDonation(){
+export default function EditDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
   const [category, setCategory] = useState('');
-  const [filePath, setFilePath] = useState()
+  const [filePath, setFilePath] = useState('Imagemx.jpg')
 
   const { getInputProps, open, acceptedFiles } = useDropzone({
     noClick: true,
@@ -33,13 +33,13 @@ export default function RegisterDonation(){
       })
     }
   }, [acceptedFiles])
-
+  
   return(
     <WrapperPage>
       <Grid container>
-        <Grid item xs={12}>
+        <Grid mb={2} item xs={12}>
           <Typography fontSize={24} variant="body1">
-            Cadastre aqui a sua doação
+            Editar a sua doação
           </Typography>
         </Grid>
       </Grid>
@@ -51,6 +51,7 @@ export default function RegisterDonation(){
               id="donationName"
               label="Digite aqui o nome do item que vai doar"
               type="text"
+              value="Telhas"
               mb={true}
               required
             />
@@ -58,6 +59,7 @@ export default function RegisterDonation(){
               fullWidth
               id="responsable"
               label="Quem é o responsável pela doação?"
+              value="Maria Edileuza"
               type="text"
               mb={true}
               required
@@ -66,6 +68,7 @@ export default function RegisterDonation(){
               fullWidth
               id="telephone"
               label="Qual o telefone?"
+              value="(13) 99876-5432"
               type="tel"
               mb={true}
               required
@@ -100,7 +103,7 @@ export default function RegisterDonation(){
             <TextField
               select
               fullWidth
-              value={category}
+              value={categories[0]}
               onChange={handleChange}
               id="donationCategory"
               label="Qual a categoria da doação?"
@@ -128,12 +131,13 @@ export default function RegisterDonation(){
         <Grid container>
           <Grid item xs={12}>
           <Typography>
-              Descreva aqui a doação: <b style={{ color: colors.red }}>*</b>
+              Edite aqui a doação: <b style={{ color: colors.red }}>*</b>
             </Typography>
             <TextField
               fullWidth
               id="donationDescription"
               type="text"
+              value="200 telhas de cerâmica em ótimo estado. Precisa retirar, não fazemos entrega."
               multiline
               minRows={10}
               mb={true}
@@ -168,7 +172,7 @@ export default function RegisterDonation(){
               justifyContent="center"
               alignItems="stretch"
             >
-              <Button type="submit" text="enviar" />
+              <Button type="submit" text="salvar" />
             </Grid>
           </Grid>
         </Grid>

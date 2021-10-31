@@ -12,10 +12,12 @@ export default function Login(){
   const styles=useStyles()
  return(
   <WrapperPage>
-    <Grid container item xs={12}>
-      <Typography>
-        <p>Faça aqui o seu login!</p>
-      </Typography>
+    <Grid container>
+      <Grid ml={16} item xs={12}>
+        <Typography fontSize={24} variant="body1">
+          Faça aqui o seu login!
+        </Typography>
+      </Grid>
     </Grid>
     <Grid container direction='column' justifyContent='center' alignItems='center'>
       <Card sx={card}>
@@ -35,7 +37,7 @@ export default function Login(){
             <Link className={styles.link} to="#">Esqueceu a senha?</Link>
           </Grid>
           <Grid item>
-            <Link className={styles.link} to="#">Cadastre-se!</Link>
+            <Link className={styles.link} to="/signup">Cadastre-se!</Link>
           </Grid>
         </Grid>
       </Card>

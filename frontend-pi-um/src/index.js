@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/home';
 import RegisterDonation from './pages/register-donation';
+import EditDonation from './pages/edit-donation';
 import Donations from './pages/donations';
 import Donation from './pages/donation';
 import SignUp from './pages/signup';
+import NotFound from './pages/not-found';
 import Contact from './pages/contact';
 import UpdateData from './pages/update-data';
 import { colors } from './assets/variables'
@@ -69,6 +71,8 @@ ReactDOM.render(
         <Route exact path='/contact' component={Contact} />
         <Route exact path='/update-data' component={UpdateData} />
         <Route exact path='/register-donation' component={RegisterDonation} />
+        <Route exact path='/edit-donation' component={EditDonation} />
+        <Route exact component={NotFound} />
       </Switch>
     </BrowserRouter>
   </ThemeProvider>,
