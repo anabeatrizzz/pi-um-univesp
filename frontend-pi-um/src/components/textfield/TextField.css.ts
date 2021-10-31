@@ -7,10 +7,6 @@ const useStyles = makeStyles({
       borderColor: colors.grey,
       borderWidth: 1
     }
-  },
-
-  mb: {
-    marginBottom: 2
   }
 });
 
