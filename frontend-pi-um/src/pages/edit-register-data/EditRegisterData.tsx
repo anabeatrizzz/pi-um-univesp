@@ -31,7 +31,7 @@ export default function EditRegisterData() {
             Atualize aqui os seus dados cadastrais
           </Typography>
         </Grid>
-        <form onSubmit={formik.handleSubmit}>
+        <form noValidate onSubmit={formik.handleSubmit}>
           <Grid container spacing={4}>
             <Grid item xs={7}>
               <TextField
