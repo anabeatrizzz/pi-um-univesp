@@ -61,7 +61,7 @@ export default function Contact() {
               inputProps={{ maxlength: 15 }}
             />
           </Grid>
-            
+
           <Grid item xs={12}>
             <Typography mb={1} variant="body1">
               Mensagem <b style={{ color: colors.red }}>*</b>
@@ -79,16 +79,23 @@ export default function Contact() {
           </Grid>
 
           <Grid
-            mt={2}
             container
             direction="row"
             justifyContent="flex-end"
-            alignContent="flex-end"
+            alignItems="flex-end"
+            spacing={2}
           >
-              <Grid item xs={1}>
+            <Grid item mt={2} xs={3}>
+              <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="stretch"
+              >
                 <Button type="submit" text="enviar" />
               </Grid>
             </Grid>
+          </Grid>
         </Grid>
       </form>
     </WrapperPage>

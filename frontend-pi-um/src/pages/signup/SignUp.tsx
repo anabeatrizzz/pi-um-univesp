@@ -172,14 +172,21 @@ export default function SignUp() {
               </Typography>
             </Grid>
             <Grid
-              mr={5}
               container
               direction="row"
               justifyContent="flex-end"
-              alignContent="flex-end"
+              alignItems="flex-end"
+              spacing={2}
             >
-              <Grid item xs={1}>
-                <Button type="submit" text="Cadastrar" />
+              <Grid item mt={2} xs={3}>
+                <Grid
+                  container
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="stretch"
+                >
+                  <Button type="submit" text="Cadastrar" />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
