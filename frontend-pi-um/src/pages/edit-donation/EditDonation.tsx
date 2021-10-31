@@ -21,7 +21,7 @@ export default function EditDonation(){
       responsable: 'Maria Edileuza',
       telephone: '(13) 99876-5432',
       donationImg: filePath,
-      donationCategory: category,
+      donationCategory: categories[0],
       donationDescription: '200 telhas de cerâmica em ótimo estado. Precisa retirar, não fazemos entrega.'
     },
     validationSchema: editDonationValidationSchema,
@@ -65,7 +65,10 @@ export default function EditDonation(){
               id="donationName"
               label="Digite aqui o nome do item que vai doar"
               type="text"
-              value="Telhas"
+              value={formik.values.donationName}
+              onChange={formik.handleChange}
+              error={formik.touched.donationName && Boolean(formik.errors.donationName)}
+              helperText={formik.touched.donationName && formik.errors.donationName}
               mb={true}
               required
             />
@@ -73,7 +76,10 @@ export default function EditDonation(){
               fullWidth
               id="responsable"
               label="Quem é o responsável pela doação?"
-              value="Maria Edileuza"
+              value={formik.values.responsable}
+              onChange={formik.handleChange}
+              error={formik.touched.responsable && Boolean(formik.errors.responsable)}
+              helperText={formik.touched.responsable && formik.errors.responsable}
               type="text"
               mb={true}
               required
@@ -82,7 +88,10 @@ export default function EditDonation(){
               fullWidth
               id="telephone"
               label="Qual o telefone?"
-              value="(13) 99876-5432"
+              value={formik.values.telephone}
+              onChange={formik.handleChange}
+              error={formik.touched.telephone && Boolean(formik.errors.telephone)}
+              helperText={formik.touched.telephone && formik.errors.telephone}
               type="tel"
               mb={true}
               required
@@ -102,7 +111,10 @@ export default function EditDonation(){
                   fullWidth
                   type="text"
                   label={filePath === undefined ? '[Caminho do arquivo]' : undefined}
-                  value={filePath}
+                  value={formik.values.donationImg}
+                  onChange={formik.handleChange}
+                  error={formik.touched.donationImg && Boolean(formik.errors.donationImg)}
+                  helperText={formik.touched.donationImg && formik.errors.donationImg}
                   disabled
                   required
                 />
@@ -117,8 +129,11 @@ export default function EditDonation(){
             <TextField
               select
               fullWidth
-              value={categories[0]}
-              onChange={handleChange}
+              value={formik.values.donationCategory}
+              onChange={formik.handleChange}
+              error={formik.touched.donationCategory && Boolean(formik.errors.donationCategory)}
+              helperText={formik.touched.donationCategory && formik.errors.donationCategory}
+              //onChange={handleChange}
               id="donationCategory"
               label="Qual a categoria da doação?"
               required
@@ -151,7 +166,10 @@ export default function EditDonation(){
               fullWidth
               id="donationDescription"
               type="text"
-              value="200 telhas de cerâmica em ótimo estado. Precisa retirar, não fazemos entrega."
+              value={formik.values.donationDescription}
+              onChange={formik.handleChange}
+              error={formik.touched.donationDescription && Boolean(formik.errors.donationDescription)}
+              helperText={formik.touched.donationDescription && formik.errors.donationDescription}
               multiline
               minRows={10}
               mb={true}

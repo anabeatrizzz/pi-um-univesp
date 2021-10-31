@@ -8,11 +8,26 @@ import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import { colors } from '../../assets/variables';
 import { useDropzone } from 'react-dropzone';
+import { useFormik } from 'formik';
+import registerDonationValidationSchema from '../../formik/editDonationValidationSchema';
 
 export default function RegisterDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
   const [category, setCategory] = useState('');
-  const [filePath, setFilePath] = useState()
+  const [filePath, setFilePath] = useState();
+
+  const formik = useFormik({
+    initialValues: {
+      donationName: '',
+      responsable: '',
+      telephone: '',
+      donationImg: '',
+      donationCategory: '',
+      donationDescription: ''
+    },
+    validationSchema: registerDonationValidationSchema,
+    onSubmit: () => { }
+  })
 
   const { getInputProps, open, acceptedFiles } = useDropzone({
     noClick: true,
@@ -43,7 +58,7 @@ export default function RegisterDonation(){
           </Typography>
         </Grid>
       </Grid>
-      <form>
+      <form noValidate>
         <Grid container spacing={4}>
           <Grid item xs={8}>
             <TextField
