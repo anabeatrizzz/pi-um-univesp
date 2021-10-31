@@ -3,7 +3,8 @@ import { colors } from "../../assets/variables"
 
 const button: CSSProperties = {
   backgroundColor: colors.mostarda,
-  color: 'black'
+  color: 'black',
+  textTransform: 'capitalize'
 }
 
 export { button }

@@ -20,13 +20,12 @@ export default function Contact() {
         <Grid container spacing={4}>
           <Grid item xs={7}>
             <TextField
-              id="nomeCompleto"
+              id="fullName"
               label="Nome completo"
               placeholder="Nome completo"
               type="text"
               fullWidth
               required
-              
             />
           </Grid>
           <Grid item xs={5}>
@@ -37,7 +36,6 @@ export default function Contact() {
               placeholder="CPF"
               type="text"
               fullWidth
-              
               inputProps={{ maxlength: 11 }}
             />
           </Grid>
@@ -50,18 +48,16 @@ export default function Contact() {
               type="email"
               fullWidth
               required
-              
             />
           </Grid>
           <Grid item xs={5}>
             <TextField
-              id="telefone"
+              id="telephone"
               label="Telefone"
               variant="outlined"
               placeholder="Telefone"
               type="tel"
               fullWidth
-              
               inputProps={{ maxlength: 15 }}
             />
           </Grid>
@@ -77,7 +73,6 @@ export default function Contact() {
               type="text"
               fullWidth
               multiline
-              
               inputProps={{ maxlength: 200 }}
               minRows={10}
             />

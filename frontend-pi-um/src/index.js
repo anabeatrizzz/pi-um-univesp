@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/home';
+import RegisterDonation from './pages/register-donation';
 import Donations from './pages/donations';
 import Donation from './pages/donation';
 import SignUp from './pages/signup';
@@ -67,6 +68,7 @@ ReactDOM.render(
         <Route exact path='/login' component={Login} />
         <Route exact path='/contact' component={Contact} />
         <Route exact path='/update-data' component={UpdateData} />
+        <Route exact path='/register-donation' component={RegisterDonation} />
       </Switch>
     </BrowserRouter>
   </ThemeProvider>,
