@@ -6,7 +6,7 @@ import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
-import validationSchema from './validationSchema'
+import signUpValidationSchema from './signUpValidationSchema'
 
 export default function SignUp(){
   const styles = useStyles();
@@ -15,14 +15,14 @@ export default function SignUp(){
       fullName: '',
       cpf: '',
       address: '',
-      number: 0,
+      number: '',
       complement: '',
       neighborhood: '',
       city: '',
       cep: '',
     },
-    validationSchema,
-    onSubmit: (values) => { alert(JSON.stringify(values, null, 2)) }
+    validationSchema: signUpValidationSchema,
+    onSubmit: () => {}
   })
 
   return(
@@ -33,7 +33,7 @@ export default function SignUp(){
             Preencha seus dados e faça seu cadastro
           </Typography>
         </Grid>
-        <form onSubmit={formik.handleSubmit}>
+        <form noValidate onSubmit={formik.handleSubmit}>
           <Grid container spacing={4}>
             <Grid item xs={7}>
               <TextField
@@ -54,6 +54,10 @@ export default function SignUp(){
               <TextField
                 id="cpf"
                 label="CPF"
+                value={formik.values.cpf}
+                onChange={formik.handleChange}
+                error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                helperText={formik.touched.cpf && formik.errors.cpf}
                 variant="outlined"
                 placeholder="CPF"
                 type="text"
@@ -65,6 +69,10 @@ export default function SignUp(){
             <Grid item xs={7}>
               <TextField
                 id="address"
+                value={formik.values.address}
+                onChange={formik.handleChange}
+                error={formik.touched.address && Boolean(formik.errors.address)}
+                helperText={formik.touched.address && formik.errors.address}
                 label="Endereço (Rua / Av / Travessa)"
                 variant="outlined"
                 placeholder="Endereço (Rua / Av / Travessa)"
@@ -77,9 +85,14 @@ export default function SignUp(){
               <TextField
                 id="number"
                 label="Número"
+                inputProps={{ pattern: "^[0-9]+$" }}
+                value={formik.values.number}
+                onChange={formik.handleChange}
+                error={formik.touched.number && Boolean(formik.errors.number)}
+                helperText={formik.touched.number && formik.errors.number}
                 variant="outlined"
                 placeholder="Número"
-                type="number"
+                type="text"
                 fullWidth
                 required
               />
@@ -88,6 +101,10 @@ export default function SignUp(){
               <TextField
                 id="complement"
                 label="Complemento"
+                value={formik.values.complement}
+                onChange={formik.handleChange}
+                error={formik.touched.complement && Boolean(formik.errors.complement)}
+                helperText={formik.touched.complement && formik.errors.complement}
                 variant="outlined"
                 placeholder="Complemento"
                 type="text"
@@ -99,11 +116,17 @@ export default function SignUp(){
               <TextField
                 id="neighborhood"
                 label="Bairro"
+                value={formik.values.neighborhood}
+                onChange={formik.handleChange}
+                error={formik.touched.neighborhood && Boolean(formik.errors.neighborhood)}
+                helperText={formik.touched.neighborhood && formik.errors.neighborhood}
                 variant="outlined"
                 placeholder="Bairro"
                 type="text"
                 fullWidth
                 required
+                //value="Gaivota"
+                //disabled
                 inputProps={{ maxlength: 20 }}
               />
             </Grid>
@@ -114,8 +137,14 @@ export default function SignUp(){
                 variant="outlined"
                 placeholder="Cidade"
                 type="text"
+                value={formik.values.city}
+                onChange={formik.handleChange}
+                error={formik.touched.city && Boolean(formik.errors.city)}
+                helperText={formik.touched.city && formik.errors.city}
+                //value="Itanhaém"
                 fullWidth
                 required
+                //disabled
                 inputProps={{ maxlength: 30 }}
               />
             </Grid>
@@ -126,9 +155,15 @@ export default function SignUp(){
                 variant="outlined"
                 placeholder="CEP"
                 type="text"
+                //value="11740-000"
+                value={formik.values.cep}
+                onChange={formik.handleChange}
+                error={formik.touched.cep && Boolean(formik.errors.cep)}
+                helperText={formik.touched.cep && formik.errors.cep}
                 fullWidth
                 required
-                inputProps={{ maxlength: 8 }}
+                //disabled
+                inputProps={{ maxlength: 9 }}
               />
             </Grid>
             <Grid alignSelf="center" item xs={8}>

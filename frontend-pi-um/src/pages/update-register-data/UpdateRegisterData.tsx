@@ -4,8 +4,25 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import WrapperPage from '../../components/wrapper-page'
 import Button from '../../components/button'
+import signUpValidationSchema from '../signup/signUpValidationSchema';
+import { useFormik } from 'formik';
 
-export default function UpdateData(){
+export default function UpdateRegisterData(){
+  const formik = useFormik({
+    initialValues: {
+      fullName: '',
+      cpf: '',
+      address: '',
+      number: '755',
+      complement: '',
+      neighborhood: '',
+      city: '',
+      cep: '',
+    },
+    validationSchema: signUpValidationSchema,
+    onSubmit: () => {}
+  })
+
   return(
     <WrapperPage>
       <Grid container>
@@ -25,7 +42,6 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 required
-                
               />
             </Grid>
             <Grid item xs={5}>
@@ -37,10 +53,7 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 required
-                
-                inputProps={{
-                  maxlength: 11
-                }}
+                inputProps={{ maxlength: 11 }}
               />
             </Grid>
             <Grid item xs={7}>
@@ -52,19 +65,22 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 required
-                
               />
             </Grid>
             <Grid item xs={5}>
-              <TextField
+            <TextField
+                id="number"
                 label="Número"
+                inputProps={{ pattern: "^[0-9]+$" }}
+                value={formik.values.number}
+                onChange={formik.handleChange}
+                error={formik.touched.number && Boolean(formik.errors.number)}
+                helperText={formik.touched.number && formik.errors.number}
                 variant="outlined"
                 placeholder="Número"
-                type="number"
-                value={755}
+                type="text"
                 fullWidth
                 required
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -76,7 +92,6 @@ export default function UpdateData(){
                 type="text"
                 fullWidth
                 inputProps={{ maxlength: 20 }}
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -89,7 +104,6 @@ export default function UpdateData(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 20 }}
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -102,7 +116,6 @@ export default function UpdateData(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 30 }}
-                
               />
             </Grid>
             <Grid item xs={4}>
@@ -115,7 +128,6 @@ export default function UpdateData(){
                 fullWidth
                 required
                 inputProps={{ maxlength: 8 }}
-                
               />
             </Grid>
             <Grid
