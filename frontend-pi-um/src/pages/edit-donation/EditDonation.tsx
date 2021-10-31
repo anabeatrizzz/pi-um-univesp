@@ -8,11 +8,25 @@ import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import { useDropzone } from 'react-dropzone';
 import { colors } from '../../assets/variables';
+import { useFormik } from 'formik';
+import editDonationValidationSchema from '../../formik/editDonationValidationSchema';
 
 export default function EditDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
   const [category, setCategory] = useState('');
   const [filePath, setFilePath] = useState('Imagemx.jpg')
+  const formik = useFormik({
+    initialValues: {
+      donationName: 'Telhas',
+      responsable: 'Maria Edileuza',
+      telephone: '(13) 99876-5432',
+      donationImg: filePath,
+      donationCategory: category,
+      donationDescription: '200 telhas de cerâmica em ótimo estado. Precisa retirar, não fazemos entrega.'
+    },
+    validationSchema: editDonationValidationSchema,
+    onSubmit: () => { }
+  })
 
   const { getInputProps, open, acceptedFiles } = useDropzone({
     noClick: true,
@@ -43,7 +57,7 @@ export default function EditDonation(){
           </Typography>
         </Grid>
       </Grid>
-      <form>
+      <form noValidate onSubmit={formik.handleSubmit}>
         <Grid container spacing={4}>
           <Grid item xs={8}>
             <TextField
@@ -131,7 +145,7 @@ export default function EditDonation(){
         <Grid container>
           <Grid item xs={12}>
           <Typography>
-              Edite aqui a doação: <b style={{ color: colors.red }}>*</b>
+              Edite aqui a descrição: <b style={{ color: colors.red }}>*</b>
             </Typography>
             <TextField
               fullWidth
