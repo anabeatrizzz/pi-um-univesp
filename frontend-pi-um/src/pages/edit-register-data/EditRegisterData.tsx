@@ -7,7 +7,7 @@ import Button from '../../components/button'
 import signUpValidationSchema from '../../formik/signUpValidationSchema';
 import { useFormik } from 'formik';
 
-export default function UpdateRegisterData() {
+export default function EditRegisterData() {
   const formik = useFormik({
     initialValues: {
       fullName: 'Maria Cecília da Silva',
@@ -31,7 +31,7 @@ export default function UpdateRegisterData() {
             Atualize aqui os seus dados cadastrais
           </Typography>
         </Grid>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={4}>
             <Grid item xs={7}>
               <TextField

@@ -9,7 +9,7 @@ import Donation from './pages/donation';
 import SignUp from './pages/signup';
 import NotFound from './pages/not-found';
 import Contact from './pages/contact';
-import UpdateRegisterData from './pages/update-register-data';
+import EditRegisterData from './pages/edit-register-data';
 import { colors } from './assets/variables'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
@@ -69,7 +69,7 @@ ReactDOM.render(
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/contact' component={Contact} />
-        <Route exact path='/update-register-data' component={UpdateRegisterData} />
+        <Route exact path='/edit-register-data' component={EditRegisterData} />
         <Route exact path='/register-donation' component={RegisterDonation} />
         <Route exact path='/edit-donation' component={EditDonation} />
         <Route exact component={NotFound} />
