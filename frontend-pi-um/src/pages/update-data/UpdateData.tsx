@@ -10,7 +10,7 @@ export default function UpdateData(){
     <WrapperPage>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant="body1">
+          <Typography fontSize={24} variant="body1">
             Atualize aqui os seus dados cadastrais
           </Typography>
         </Grid>

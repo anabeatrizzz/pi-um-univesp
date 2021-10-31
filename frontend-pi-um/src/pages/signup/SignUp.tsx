@@ -29,7 +29,7 @@ export default function SignUp(){
     <WrapperPage>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant='body1'>
+          <Typography fontSize={24} variant='body1'>
             Preencha seus dados e faça seu cadastro
           </Typography>
         </Grid>
