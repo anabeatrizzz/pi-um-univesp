@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { TextField as MUITextField, TextFieldProps } from '@mui/material';
 import useStyles from './TextField.css';
-import clsx from 'clsx';
 
 type TTextField = TextFieldProps & { mb?: boolean }
 

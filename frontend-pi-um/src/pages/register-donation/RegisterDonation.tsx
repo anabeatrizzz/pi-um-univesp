@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '../../components/textfield';
@@ -7,14 +7,32 @@ import Button from '../../components/button';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import { colors } from '../../assets/variables';
+import { useDropzone } from 'react-dropzone';
 
 export default function RegisterDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
   const [categorie, setCategorie] = useState('');
+  const [filePath, setFilePath] = useState()
+
+  const { getInputProps, open, acceptedFiles } = useDropzone({
+    noClick: true,
+    noKeyboard: true,
+    maxFiles: 1,
+    accept: 'image/jpeg, image/png, image/jpg'
+  });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCategorie(event.target.value);
   };
+
+  useEffect(() => {
+    if(acceptedFiles[0] !== undefined){
+      acceptedFiles.map((acceptedFile: any) => {
+        setFilePath(acceptedFile.path)
+        return null
+      })
+    }
+  }, [acceptedFiles])
 
   return(
     <WrapperPage>
@@ -52,16 +70,31 @@ export default function RegisterDonation(){
               mb={true}
               required
             />
-            <Typography>
+            <Typography marginTop={2}>
               Insira aqui a foto do que você está doando:
             </Typography>
-            <TextField
-              id="donationImg"
-              fullWidth
-              type="file"
-              mb={true}
-              required
-            />
+            <Grid
+              container
+              alignItems="center"
+              justifyContent="center"
+              spacing={2}
+            >
+              <Grid item xs={9}>
+                <TextField
+                  id="donationImg"
+                  fullWidth
+                  type="text"
+                  label={filePath === undefined ? '[Caminho do arquivo]' : undefined}
+                  value={filePath}
+                  disabled
+                  required
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <input {...getInputProps()} />
+                <Button onClick={open} text="Anexar arquivo" />
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item xs={4}>
             <TextField
@@ -95,7 +128,7 @@ export default function RegisterDonation(){
         <Grid container>
           <Grid item xs={12}>
           <Typography>
-              Descreva aqui a doação:
+              Descreva aqui a doação: <b style={{ color: colors.red }}>*</b>
             </Typography>
             <TextField
               fullWidth

@@ -1,8 +1,7 @@
 // @ts-nocheck
 import React, { FC } from 'react';
 import { Button as MUIButton } from '@mui/material';
-import { button } from './Button.css'
-import { colors } from "../../assets/variables"
+import { button } from './Button.css';
 
 interface IButton {
   text: string;
