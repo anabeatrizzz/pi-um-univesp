@@ -1,5 +1,4 @@
 import React, { createRef, useLayoutEffect } from 'react';
-import { API_KEY } from '../../.env'
 
 declare global {
   interface Window {
@@ -14,7 +13,7 @@ export default function Map(){
     if (!mapRef.current) return;
     const H = window.H;
     const platform = new H.service.Platform({
-        apikey: API_KEY
+        apikey: process.env.REACT_APP_MAP_API_KEY
     });
 
     const defaultLayers = platform.createDefaultLayers();
