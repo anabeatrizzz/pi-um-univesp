@@ -40,11 +40,11 @@ export default function Donations() {
               xs={2}
             >
               {
-                categories.map((categorie) => {
+                categories.map((category) => {
                   return (
                     <Link to="#" className={styles.link}>
                       <Typography component="div" variant="body1">
-                        <Box color={colors.mostarda} display='inline'>|</Box> {categorie}
+                        <Box color={colors.mostarda} display='inline'>|</Box> {category}
                       </Typography>
                     </Link>
                   )
