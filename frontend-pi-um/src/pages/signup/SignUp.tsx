@@ -6,7 +6,7 @@ import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
-import signUpValidationSchema from '../../formik/signUpValidationSchema';
+import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
 
 export default function SignUp() {
   const styles = useStyles();

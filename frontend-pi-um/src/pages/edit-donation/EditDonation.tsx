@@ -9,11 +9,10 @@ import Card from '@mui/material/Card';
 import { useDropzone } from 'react-dropzone';
 import { colors } from '../../assets/variables';
 import { useFormik } from 'formik';
-import editDonationValidationSchema from '../../formik/editDonationValidationSchema';
+import editDonationValidationSchema from '../../formik/validationSchemas/editAndRegisterDonation';
 
 export default function EditDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
-  const [category, setCategory] = useState('');
   const [filePath, setFilePath] = useState('Imagemx.jpg')
   const formik = useFormik({
     initialValues: {
@@ -34,10 +33,6 @@ export default function EditDonation(){
     maxFiles: 1,
     accept: 'image/jpeg, image/png, image/jpg'
   });
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setCategory(event.target.value);
-  };
 
   useEffect(() => {
     if(acceptedFiles[0] !== undefined){
@@ -107,12 +102,10 @@ export default function EditDonation(){
             >
               <Grid item xs={9}>
                 <TextField
-                  id="donationImg"
                   fullWidth
                   type="text"
-                  label={filePath === undefined ? '[Caminho do arquivo]' : undefined}
+                  label={formik.values.donationImg === undefined ? '[Caminho do arquivo]' : undefined}
                   value={formik.values.donationImg}
-                  onChange={formik.handleChange}
                   error={formik.touched.donationImg && Boolean(formik.errors.donationImg)}
                   helperText={formik.touched.donationImg && formik.errors.donationImg}
                   disabled
@@ -120,7 +113,11 @@ export default function EditDonation(){
                 />
               </Grid>
               <Grid item xs={3}>
-                <input {...getInputProps()} />
+                <input
+                  {...getInputProps()}
+                  id="donationImg"
+                  onChange={formik.handleChange}
+                />
                 <Button onClick={open} text="Anexar arquivo" />
               </Grid>
             </Grid>
@@ -130,10 +127,10 @@ export default function EditDonation(){
               select
               fullWidth
               value={formik.values.donationCategory}
-              onChange={formik.handleChange}
+              onChange={(value) => formik.setFieldValue('donationCategory', value.target.value)}
+              onBlur={() => formik.setFieldTouched('donationCategory', true)}
               error={formik.touched.donationCategory && Boolean(formik.errors.donationCategory)}
               helperText={formik.touched.donationCategory && formik.errors.donationCategory}
-              //onChange={handleChange}
               id="donationCategory"
               label="Qual a categoria da doação?"
               required

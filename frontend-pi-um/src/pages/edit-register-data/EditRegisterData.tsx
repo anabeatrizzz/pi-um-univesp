@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import WrapperPage from '../../components/wrapper-page'
 import Button from '../../components/button'
-import signUpValidationSchema from '../../formik/signUpValidationSchema';
+import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
 import { useFormik } from 'formik';
 
 export default function EditRegisterData() {

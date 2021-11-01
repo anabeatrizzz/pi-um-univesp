@@ -8,7 +8,7 @@ import Button from '../../components/button';
 import useStyles, { card } from './Login.css';
 import WrapperPage from '../../components/wrapper-page';
 import { useFormik } from 'formik'
-import loginValidationSchema from '../../formik/contactValidationSchema';
+import loginValidationSchema from '../../formik/validationSchemas/login';
 
 export default function Login() {
   const styles = useStyles();
@@ -36,7 +36,7 @@ export default function Login() {
         alignItems='center'
       >
         <Card sx={card}>
-          <form onSubmit={formik.handleSubmit}>
+          <form noValidate onSubmit={formik.handleSubmit}>
             <Grid pt={3} pb={3} item xs={12}>
               <TextField
                 fullWidth

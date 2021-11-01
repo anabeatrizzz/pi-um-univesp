@@ -6,7 +6,7 @@ import TextField from '../../components/textfield';
 import Button from '../../components/button';
 import { colors } from '../../assets/variables';
 import { useFormik } from 'formik';
-import contactValidationSchema from '../../formik/contactValidationSchema';
+import contactValidationSchema from '../../formik/validationSchemas/contact';
 
 export default function Contact() {
   const formik = useFormik({

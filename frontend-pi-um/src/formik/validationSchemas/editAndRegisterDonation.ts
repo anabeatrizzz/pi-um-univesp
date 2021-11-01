@@ -17,7 +17,8 @@ const validationSchema = Yup.object({
     .string()
     .required('Escolha uma categoria de doação'),
   donationDescription: Yup
-    .string(),
+    .string()
+    .required('Descreva sua doação'),
 })
 
 export default validationSchema
