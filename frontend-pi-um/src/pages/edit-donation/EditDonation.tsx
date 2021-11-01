@@ -8,11 +8,24 @@ import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import { useDropzone } from 'react-dropzone';
 import { colors } from '../../assets/variables';
+import { useFormik } from 'formik';
+import editDonationValidationSchema from '../../formik/validationSchemas/editAndRegisterDonation';
 
 export default function EditDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
-  const [category, setCategory] = useState('');
   const [filePath, setFilePath] = useState('Imagemx.jpg')
+  const formik = useFormik({
+    initialValues: {
+      donationName: 'Telhas',
+      responsable: 'Maria Edileuza',
+      telephone: '(13) 99876-5432',
+      donationImg: filePath,
+      donationCategory: categories[0],
+      donationDescription: '200 telhas de cerâmica em ótimo estado. Precisa retirar, não fazemos entrega.'
+    },
+    validationSchema: editDonationValidationSchema,
+    onSubmit: () => { }
+  })
 
   const { getInputProps, open, acceptedFiles } = useDropzone({
     noClick: true,
@@ -20,10 +33,6 @@ export default function EditDonation(){
     maxFiles: 1,
     accept: 'image/jpeg, image/png, image/jpg'
   });
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setCategory(event.target.value);
-  };
 
   useEffect(() => {
     if(acceptedFiles[0] !== undefined){
@@ -43,7 +52,7 @@ export default function EditDonation(){
           </Typography>
         </Grid>
       </Grid>
-      <form>
+      <form noValidate onSubmit={formik.handleSubmit}>
         <Grid container spacing={4}>
           <Grid item xs={8}>
             <TextField
@@ -51,7 +60,10 @@ export default function EditDonation(){
               id="donationName"
               label="Digite aqui o nome do item que vai doar"
               type="text"
-              value="Telhas"
+              value={formik.values.donationName}
+              onChange={formik.handleChange}
+              error={formik.touched.donationName && Boolean(formik.errors.donationName)}
+              helperText={formik.touched.donationName && formik.errors.donationName}
               mb={true}
               required
             />
@@ -59,7 +71,10 @@ export default function EditDonation(){
               fullWidth
               id="responsable"
               label="Quem é o responsável pela doação?"
-              value="Maria Edileuza"
+              value={formik.values.responsable}
+              onChange={formik.handleChange}
+              error={formik.touched.responsable && Boolean(formik.errors.responsable)}
+              helperText={formik.touched.responsable && formik.errors.responsable}
               type="text"
               mb={true}
               required
@@ -68,7 +83,10 @@ export default function EditDonation(){
               fullWidth
               id="telephone"
               label="Qual o telefone?"
-              value="(13) 99876-5432"
+              value={formik.values.telephone}
+              onChange={formik.handleChange}
+              error={formik.touched.telephone && Boolean(formik.errors.telephone)}
+              helperText={formik.touched.telephone && formik.errors.telephone}
               type="tel"
               mb={true}
               required
@@ -84,17 +102,22 @@ export default function EditDonation(){
             >
               <Grid item xs={9}>
                 <TextField
-                  id="donationImg"
                   fullWidth
                   type="text"
-                  label={filePath === undefined ? '[Caminho do arquivo]' : undefined}
-                  value={filePath}
+                  label={formik.values.donationImg === undefined ? '[Caminho do arquivo]' : undefined}
+                  value={formik.values.donationImg}
+                  error={formik.touched.donationImg && Boolean(formik.errors.donationImg)}
+                  helperText={formik.touched.donationImg && formik.errors.donationImg}
                   disabled
                   required
                 />
               </Grid>
               <Grid item xs={3}>
-                <input {...getInputProps()} />
+                <input
+                  {...getInputProps()}
+                  id="donationImg"
+                  onChange={formik.handleChange}
+                />
                 <Button onClick={open} text="Anexar arquivo" />
               </Grid>
             </Grid>
@@ -103,8 +126,11 @@ export default function EditDonation(){
             <TextField
               select
               fullWidth
-              value={categories[0]}
-              onChange={handleChange}
+              value={formik.values.donationCategory}
+              onChange={(value) => formik.setFieldValue('donationCategory', value.target.value)}
+              onBlur={() => formik.setFieldTouched('donationCategory', true)}
+              error={formik.touched.donationCategory && Boolean(formik.errors.donationCategory)}
+              helperText={formik.touched.donationCategory && formik.errors.donationCategory}
               id="donationCategory"
               label="Qual a categoria da doação?"
               required
@@ -131,13 +157,16 @@ export default function EditDonation(){
         <Grid container>
           <Grid item xs={12}>
           <Typography>
-              Edite aqui a doação: <b style={{ color: colors.red }}>*</b>
+              Edite aqui a descrição: <b style={{ color: colors.red }}>*</b>
             </Typography>
             <TextField
               fullWidth
               id="donationDescription"
               type="text"
-              value="200 telhas de cerâmica em ótimo estado. Precisa retirar, não fazemos entrega."
+              value={formik.values.donationDescription}
+              onChange={formik.handleChange}
+              error={formik.touched.donationDescription && Boolean(formik.errors.donationDescription)}
+              helperText={formik.touched.donationDescription && formik.errors.donationDescription}
               multiline
               minRows={10}
               mb={true}
