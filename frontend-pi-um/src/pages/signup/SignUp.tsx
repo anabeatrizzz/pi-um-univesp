@@ -6,6 +6,7 @@ import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
+import InputMask from "react-input-mask";
 import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
 
 export default function SignUp() {
@@ -51,20 +52,29 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={5}>
-              <TextField
-                label="CPF"
+              <InputMask
+                mask="999.999.999-99"
                 id="cpf"
                 value={formik.values.cpf}
                 onChange={formik.handleChange}
-                error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-                helperText={formik.touched.cpf && formik.errors.cpf}
-                variant="outlined"
-                placeholder="CPF"
-                type="text"
-                fullWidth
-                required
-                inputProps={{ maxlength: 11 }}
-              />
+              >
+                {
+                  (inputProps: any) => (
+                    <TextField
+                      label="CPF"
+                      id="cpf"
+                      error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                      helperText={formik.touched.cpf && formik.errors.cpf}
+                      variant="outlined"
+                      placeholder="CPF"
+                      type="text"
+                      fullWidth
+                      required
+                      {...inputProps}
+                    />
+                  )
+                }
+              </InputMask>
             </Grid>
             <Grid item xs={7}>
               <TextField
