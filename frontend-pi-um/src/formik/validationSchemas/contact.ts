@@ -5,7 +5,8 @@ const validationSchema = Yup.object({
     .string()
     .required('Informe seu nome'),
   cpf: Yup
-    .string(),
+    .string()
+    .required('Informe seu CPF'),
   email: Yup
     .string()
     .email('Informe um e-mail válido')

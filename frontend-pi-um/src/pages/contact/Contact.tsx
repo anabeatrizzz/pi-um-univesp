@@ -47,7 +47,7 @@ export default function Contact() {
             />
           </Grid>
           <Grid item xs={5}>
-          <InputMask
+            <InputMask
                 mask="999.999.999-99"
                 id="cpf"
                 value={formik.values.cpf}

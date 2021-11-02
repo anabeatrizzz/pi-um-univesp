@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
 import { TextField as MUITextField, TextFieldProps } from '@mui/material';
 import useStyles from './TextField.css';
+import InputMask from "react-input-mask";
 
-type TTextField = TextFieldProps & { mb?: boolean }
+interface ITextField {
+  mb?: boolean;
+}
+
+type TTextField = TextFieldProps & ITextField
 
 const TextField: FC<TTextField> = (props) => {
   const styles = useStyles();
