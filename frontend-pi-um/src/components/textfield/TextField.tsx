@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { TextField as MUITextField, TextFieldProps } from '@mui/material';
 import useStyles from './TextField.css';
-import InputMask from "react-input-mask";
 
 interface ITextField {
   mb?: boolean;
