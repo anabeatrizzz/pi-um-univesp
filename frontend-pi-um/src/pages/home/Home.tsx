@@ -94,9 +94,9 @@ export default function Home() {
 
         <Slider {...settings}>
           {
-            Array(10).fill(1).map(() => {
+            Array(10).fill(1).map((_, index) => {
               return (
-                <Grid item xs={11}>
+                <Grid key={index} item xs={11}>
                   <Card className={styles.carouselCard}>
                     <CardMedia
                       component="img"

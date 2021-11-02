@@ -119,7 +119,7 @@ export default function SignUp() {
                 placeholder="Complemento"
                 type="text"
                 fullWidth
-                inputProps={{ maxlength: 20 }}
+                inputProps={{ maxLength: 20 }}
               />
             </Grid>
             <Grid item xs={4}>
@@ -137,7 +137,7 @@ export default function SignUp() {
                 required
                 //value="Gaivota"
                 //disabled
-                inputProps={{ maxlength: 20 }}
+                inputProps={{ maxLength: 20 }}
               />
             </Grid>
             <Grid item xs={4}>
@@ -155,7 +155,7 @@ export default function SignUp() {
                 fullWidth
                 required
                 //disabled
-                inputProps={{ maxlength: 30 }}
+                inputProps={{ maxLength: 30 }}
               />
             </Grid>
             <Grid item xs={4}>
@@ -173,7 +173,7 @@ export default function SignUp() {
                 fullWidth
                 required
                 //disabled
-                inputProps={{ maxlength: 9 }}
+                inputProps={{ maxLength: 9 }}
               />
             </Grid>
             <Grid alignSelf="center" item xs={8}>

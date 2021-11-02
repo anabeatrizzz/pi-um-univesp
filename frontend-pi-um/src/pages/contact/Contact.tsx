@@ -98,7 +98,7 @@ export default function Contact() {
               placeholder="Telefone"
               type="tel"
               fullWidth
-              inputProps={{ maxlength: 15 }}
+              inputProps={{ maxLength: 15 }}
             />
           </Grid>
 
@@ -117,7 +117,7 @@ export default function Contact() {
               type="text"
               fullWidth
               multiline
-              inputProps={{ maxlength: 200 }}
+              inputProps={{ maxLength: 200 }}
               minRows={10}
             />
           </Grid>

@@ -117,7 +117,7 @@ export default function EditRegisterData() {
                 helperText={formik.touched.complement && formik.errors.complement}
                 type="text"
                 fullWidth
-                inputProps={{ maxlength: 20 }}
+                inputProps={{ maxLength: 20 }}
               />
             </Grid>
             <Grid item xs={4}>
@@ -133,7 +133,7 @@ export default function EditRegisterData() {
                 helperText={formik.touched.neighborhood && formik.errors.neighborhood}
                 fullWidth
                 required
-                inputProps={{ maxlength: 20 }}
+                inputProps={{ maxLength: 20 }}
               />
             </Grid>
             <Grid item xs={4}>
@@ -149,7 +149,7 @@ export default function EditRegisterData() {
                 type="text"
                 fullWidth
                 required
-                inputProps={{ maxlength: 30 }}
+                inputProps={{ maxLength: 30 }}
               />
             </Grid>
             <Grid item xs={4}>
@@ -165,7 +165,7 @@ export default function EditRegisterData() {
                 helperText={formik.touched.cep && formik.errors.cep}
                 fullWidth
                 required
-                inputProps={{ maxlength: 8 }}
+                inputProps={{ maxLength: 8 }}
               />
             </Grid>
             <Grid
