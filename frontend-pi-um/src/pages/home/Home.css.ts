@@ -1,0 +1,47 @@
+import { makeStyles } from '@mui/styles';
+import { CSSProperties } from 'react';
+import { colors } from '../../assets/variables';
+
+const useStyles = makeStyles({
+  paragraph: {
+    color: 'black'
+  },
+
+  card: {
+    display: 'flex'
+  },
+
+  container: {
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingLeft: 30,
+    paddingRight: 30
+  },
+
+  secondGrid: {
+    height: '50%'
+  },
+
+  typography2ndGrid: {
+    marginBottom: 30
+  },
+
+  lastDonationsTxt: {
+    paddingTop: 50
+  },
+
+  carouselCard: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  }
+})
+
+const button: CSSProperties = {
+  backgroundColor: colors.mostarda,
+  color: 'black'
+}
+
+export default useStyles
+export { button }
