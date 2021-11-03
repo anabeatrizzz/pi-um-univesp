@@ -9,7 +9,8 @@ import Card from '@mui/material/Card';
 import { colors } from '../../assets/variables';
 import { useDropzone } from 'react-dropzone';
 import { useFormik } from 'formik';
-import registerDonationValidationSchema from '../../formik/validationSchemas/editAndRegisterDonation';
+import InputMask from 'react-input-mask';
+import editAndRegisterDonation from '../../formik/validationSchemas/editAndRegisterDonation';
 
 export default function RegisterDonation(){
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
@@ -24,7 +25,7 @@ export default function RegisterDonation(){
       donationCategory: '',
       donationDescription: ''
     },
-    validationSchema: registerDonationValidationSchema,
+    validationSchema: editAndRegisterDonation,
     onSubmit: () => { }
   })
 
@@ -80,18 +81,27 @@ export default function RegisterDonation(){
               mb={true}
               required
             />
-            <TextField
-              fullWidth
+            <InputMask
+              mask="(99) 9 9999-9999"
               id="telephone"
-              label="Qual o telefone?"
               value={formik.values.telephone}
               onChange={formik.handleChange}
-              error={formik.touched.telephone && Boolean(formik.errors.telephone)}
-              helperText={formik.touched.telephone && formik.errors.telephone}
-              type="tel"
-              mb={true}
-              required
-            />
+            >
+              {
+                (inputProps: any) =>
+                <TextField
+                  fullWidth
+                  id="telephone"
+                  label="Qual o telefone?"
+                  error={formik.touched.telephone && Boolean(formik.errors.telephone)}
+                  helperText={formik.touched.telephone && formik.errors.telephone}
+                  type="tel"
+                  mb={true}
+                  required
+                  {...inputProps}
+                />
+              }
+            </InputMask>
             <Typography marginTop={2}>
               Insira aqui a foto do que você está doando:
             </Typography>

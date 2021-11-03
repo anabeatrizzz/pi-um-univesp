@@ -87,19 +87,27 @@ export default function Contact() {
             />
           </Grid>
           <Grid item xs={5}>
-            <TextField
+            <InputMask
+              mask="(99) 9 9999-9999"
               id="telephone"
-              label="Telefone"
-              variant="outlined"
               value={formik.values.telephone}
               onChange={formik.handleChange}
-              error={formik.touched.telephone && Boolean(formik.errors.telephone)}
-              helperText={formik.touched.telephone && formik.errors.telephone}
-              placeholder="Telefone"
-              type="tel"
-              fullWidth
-              inputProps={{ maxLength: 15 }}
-            />
+            >
+              {
+                (inputProps: any) => 
+                <TextField
+                  id="telephone"
+                  label="Telefone"
+                  variant="outlined"
+                  error={formik.touched.telephone && Boolean(formik.errors.telephone)}
+                  helperText={formik.touched.telephone && formik.errors.telephone}
+                  placeholder="Telefone"
+                  type="tel"
+                  fullWidth
+                  {...inputProps}
+                />
+              }
+            </InputMask>
           </Grid>
 
           <Grid item xs={12}>
