@@ -6,6 +6,7 @@ import TextField from '../../components/textfield';
 import Button from '../../components/button';
 import { colors } from '../../assets/variables';
 import { useFormik } from 'formik';
+import InputMask from 'react-input-mask';
 import contactValidationSchema from '../../formik/validationSchemas/contact';
 
 export default function Contact() {
@@ -46,19 +47,29 @@ export default function Contact() {
             />
           </Grid>
           <Grid item xs={5}>
-            <TextField
-              id="cpf"
-              label="CPF"
-              value={formik.values.cpf}
-              onChange={formik.handleChange}
-              error={formik.touched.cpf && Boolean(formik.errors.cpf)}
-              helperText={formik.touched.cpf && formik.errors.cpf}
-              variant="outlined"
-              placeholder="CPF"
-              type="text"
-              fullWidth
-              inputProps={{ maxlength: 11 }}
-            />
+            <InputMask
+                mask="999.999.999-99"
+                id="cpf"
+                value={formik.values.cpf}
+                onChange={formik.handleChange}
+              >
+                {
+                  (inputProps: any) => (
+                    <TextField
+                      label="CPF"
+                      id="cpf"
+                      error={formik.touched.cpf && Boolean(formik.errors.cpf)}
+                      helperText={formik.touched.cpf && formik.errors.cpf}
+                      variant="outlined"
+                      placeholder="CPF"
+                      type="text"
+                      fullWidth
+                      required
+                      {...inputProps}
+                    />
+                  )
+                }
+              </InputMask>
           </Grid>
           <Grid item xs={7}>
             <TextField
@@ -87,7 +98,7 @@ export default function Contact() {
               placeholder="Telefone"
               type="tel"
               fullWidth
-              inputProps={{ maxlength: 15 }}
+              inputProps={{ maxLength: 15 }}
             />
           </Grid>
 
@@ -106,7 +117,7 @@ export default function Contact() {
               type="text"
               fullWidth
               multiline
-              inputProps={{ maxlength: 200 }}
+              inputProps={{ maxLength: 200 }}
               minRows={10}
             />
           </Grid>
