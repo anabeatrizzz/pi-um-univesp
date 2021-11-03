@@ -126,7 +126,7 @@ export default function SignUp() {
               <TextField
                 id="neighborhood"
                 label="Bairro"
-                value={formik.values.neighborhood}
+                //value={formik.values.neighborhood}
                 onChange={formik.handleChange}
                 error={formik.touched.neighborhood && Boolean(formik.errors.neighborhood)}
                 helperText={formik.touched.neighborhood && formik.errors.neighborhood}
@@ -135,8 +135,8 @@ export default function SignUp() {
                 type="text"
                 fullWidth
                 required
-                //value="Gaivota"
-                //disabled
+                value="Gaivota"
+                disabled
                 inputProps={{ maxLength: 20 }}
               />
             </Grid>
@@ -147,34 +147,43 @@ export default function SignUp() {
                 variant="outlined"
                 placeholder="Cidade"
                 type="text"
-                value={formik.values.city}
+                //value={formik.values.city}
                 onChange={formik.handleChange}
                 error={formik.touched.city && Boolean(formik.errors.city)}
                 helperText={formik.touched.city && formik.errors.city}
-                //value="Itanhaém"
+                value="Itanhaém"
+                disabled
                 fullWidth
                 required
-                //disabled
                 inputProps={{ maxLength: 30 }}
               />
             </Grid>
             <Grid item xs={4}>
-              <TextField
+            <InputMask
+                mask="99999-999"
                 id="cep"
-                label="CEP"
-                variant="outlined"
-                placeholder="CEP"
-                type="text"
-                //value="11740-000"
-                value={formik.values.cep}
+                //value={formik.values.cep}
+                disabled
+                value="11740-000"
                 onChange={formik.handleChange}
-                error={formik.touched.cep && Boolean(formik.errors.cep)}
-                helperText={formik.touched.cep && formik.errors.cep}
-                fullWidth
-                required
-                //disabled
-                inputProps={{ maxLength: 9 }}
-              />
+              >
+                {
+                  (inputProps: any) => (
+                    <TextField
+                      id="cep"
+                      label="CEP"
+                      variant="outlined"
+                      placeholder="CEP"
+                      type="text"
+                      disabled
+                      error={formik.touched.cep && Boolean(formik.errors.cep)}
+                      helperText={formik.touched.cep && formik.errors.cep}
+                      fullWidth
+                      required
+                      {...inputProps}
+                    />
+                )}
+              </InputMask>
             </Grid>
             <Grid alignSelf="center" item xs={8}>
               <Typography className={styles.typography} variant="body1">

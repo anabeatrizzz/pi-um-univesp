@@ -153,20 +153,28 @@ export default function EditRegisterData() {
               />
             </Grid>
             <Grid item xs={4}>
-              <TextField
+            <InputMask
+                mask="99999-999"
                 id="cep"
-                label="CEP"
-                variant="outlined"
-                placeholder="CEP"
-                type="text"
                 value={formik.values.cep}
                 onChange={formik.handleChange}
-                error={formik.touched.cep && Boolean(formik.errors.cep)}
-                helperText={formik.touched.cep && formik.errors.cep}
-                fullWidth
-                required
-                inputProps={{ maxLength: 8 }}
-              />
+              >
+                {
+                  (inputProps: any) => (
+                    <TextField
+                      id="cep"
+                      label="CEP"
+                      variant="outlined"
+                      placeholder="CEP"
+                      type="text"
+                      error={formik.touched.cep && Boolean(formik.errors.cep)}
+                      helperText={formik.touched.cep && formik.errors.cep}
+                      fullWidth
+                      required
+                      {...inputProps}
+                    />
+                )}
+              </InputMask>
             </Grid>
             <Grid
               container

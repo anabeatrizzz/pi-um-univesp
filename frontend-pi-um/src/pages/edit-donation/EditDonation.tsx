@@ -9,6 +9,7 @@ import Card from '@mui/material/Card';
 import { useDropzone } from 'react-dropzone';
 import { colors } from '../../assets/variables';
 import { useFormik } from 'formik';
+import InputMask from 'react-input-mask';
 import editDonationValidationSchema from '../../formik/validationSchemas/editAndRegisterDonation';
 
 export default function EditDonation(){
@@ -79,18 +80,27 @@ export default function EditDonation(){
               mb={true}
               required
             />
-            <TextField
-              fullWidth
-              id="telephone"
-              label="Qual o telefone?"
-              value={formik.values.telephone}
-              onChange={formik.handleChange}
-              error={formik.touched.telephone && Boolean(formik.errors.telephone)}
-              helperText={formik.touched.telephone && formik.errors.telephone}
-              type="tel"
-              mb={true}
-              required
-            />
+            <InputMask
+               mask="(99) 9 9999-9999"
+               id="telephone"
+               value={formik.values.telephone}
+               onChange={formik.handleChange}
+            >
+              {
+                (inputProps: any) =>
+                <TextField
+                  fullWidth
+                  id="telephone"
+                  label="Qual o telefone?"
+                  error={formik.touched.telephone && Boolean(formik.errors.telephone)}
+                  helperText={formik.touched.telephone && formik.errors.telephone}
+                  type="tel"
+                  mb={true}
+                  required
+                  {...inputProps}
+                />
+              }
+            </InputMask>
             <Typography marginTop={2}>
               Insira aqui a foto do que você está doando:
             </Typography>
