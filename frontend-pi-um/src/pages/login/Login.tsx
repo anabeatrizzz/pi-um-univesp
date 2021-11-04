@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/button';
 import useStyles, { card } from './Login.css';
 import WrapperPage from '../../components/wrapper-page';
-import { useFormik } from 'formik'
+import { useFormik } from 'formik';
 import loginValidationSchema from '../../formik/validationSchemas/login';
 
 export default function Login() {
@@ -81,7 +81,7 @@ export default function Login() {
             mb={2}
           >
             <Grid item>
-              <Link className={styles.link} to="#">
+              <Link className={styles.link} to="/password-forgotten">
                 Esqueceu a senha?
               </Link>
             </Grid>
