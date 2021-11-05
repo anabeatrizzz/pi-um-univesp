@@ -11,6 +11,7 @@ import NotFound from './pages/not-found';
 import Contact from './pages/contact';
 import PasswordForgotten from './pages/password-forgotten';
 import EditRegisterData from './pages/edit-register-data';
+import YourDonations from './pages/your-donations';
 import { colors } from './assets/variables'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
@@ -20,6 +21,7 @@ import {
   Switch, // indica quais as entradas possiveis
   Route
 } from 'react-router-dom';
+import YourDonations from './pages/your-donations';
 
 const theme = createTheme({
   components: {
@@ -67,6 +69,7 @@ ReactDOM.render(
         <Route exact path="/" component={Home} />
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/donation/:id' component={Donation} />
+        <Route exact path='/your-donations' component={YourDonations} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/contact' component={Contact} />

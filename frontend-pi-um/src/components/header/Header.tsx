@@ -55,6 +55,9 @@ export default function Header() {
           <NavLink className={styles.navLink} to="/login">
             <li className={styles.li}>Login</li>
           </NavLink>
+          <NavLink className={styles.navLink} to="/your-donations">
+    <li className={styles.li}>YourDonations</li>
+  </NavLink>
         </ul>
       </nav>
       <Menu
