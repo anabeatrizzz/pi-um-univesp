@@ -11,7 +11,6 @@ export const output = {
   publicPath: "/static/",
 };
 export const module = {
-  devtool:'cheap-module-source-map',
   rules: [
     {
       test: /\.js$/,

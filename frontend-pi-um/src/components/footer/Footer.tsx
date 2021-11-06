@@ -22,9 +22,6 @@ export default function Footer(){
       <NavLink to="/login" className={styles.paragraph}>
         LOGIN
       </NavLink>
-      <NavLink to="/your-donations" className={styles.paragraph}>
-      SUAS DOAÇÕES
-      </NavLink>
     </footer>
   )
 }

@@ -21,7 +21,6 @@ import {
   Switch, // indica quais as entradas possiveis
   Route
 } from 'react-router-dom';
-import YourDonations from './pages/your-donations';
 
 const theme = createTheme({
   components: {
@@ -68,7 +67,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path='/donations' component={Donations} />
-        <Route exact path='/donation/:id' component={Donation} />
+        <Route exact path='/donation/:id' component={Donation} /> 
         <Route exact path='/your-donations' component={YourDonations} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
