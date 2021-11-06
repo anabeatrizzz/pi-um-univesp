@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
-import useStyles from './Donations.css';
+import useStyles, { box, card, cardContent, cardMedia, iconButton, inputBase } from './Donations.css';
 import { colors } from '../../assets/variables';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
@@ -68,11 +68,11 @@ export default function Donations() {
                 </Grid>
                 <Grid item xs={4}>
                 <InputBase
-                  sx={{ ml: 1, flex: 1 }}
+                  sx={inputBase}
                   placeholder="Buscar"
                   inputProps={{ 'aria-label': 'buscar' }}
                 />
-                <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                <IconButton type="submit" sx={iconButton} aria-label="search">
                   <SearchIcon />
                 </IconButton>
                 </Grid>
@@ -83,44 +83,53 @@ export default function Donations() {
                     const linkTo = `/donation/${index+1}`
                     return (
                       <Grid item xs={6}>
-                        <Card sx={{ display: 'flex', height: '100%' }}>
-                          <CardMedia
-                            component="img"
-                            sx={{ width: 190 }}
-                            src="https://place-hold.it/500x500.png"
-                          />
-                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <CardContent sx={{ flex: '1 0 auto' }}>
-                              <Typography
-                                variant="h6"
-                                gutterBottom
-                              >
-                                <b>20 sacos de cimento</b>
-                              </Typography>
-                              <Typography
-                                variant="subtitle2"
-                                gutterBottom
-                              >
-                                20 sacos de cimento fechados, 2 sacos abertos, mas com ...
-                              </Typography>
-                              <Typography
-                                variant="subtitle2"
-                                gutterBottom
-                              >
-                                12/04/2021 - 15:34
-                              </Typography>
-                              <Link className={styles.link} to={linkTo}>
+                        <Link className={styles.link} to={linkTo}>
+                          <Card sx={card}>
+                            <CardMedia
+                              component="img"
+                              sx={cardMedia}
+                              src="https://place-hold.it/500x500.png"
+                            />
+                            <Box sx={box}>
+                              <CardContent sx={cardContent}>
+                                <Typography
+                                  variant="h6"
+                                  gutterBottom
+                                  fontSize={16}
+                                  fontWeight={700}
+                                >
+                                  20 sacos de cimento
+                                </Typography>
                                 <Typography
                                   variant="subtitle2"
                                   gutterBottom
-                                  align="right"
+                                  fontSize={12}
                                 >
-                                  Ver +
+                                  20 sacos de cimento fechados, 2 sacos abertos, mas com ...
                                 </Typography>
-                              </Link>
-                            </CardContent>
-                          </Box>
-                        </Card>
+                                <Typography
+                                  variant="subtitle2"
+                                  gutterBottom
+                                  fontSize={14}
+                                  color={colors.greenishGrey}
+                                >
+                                  12/04/2021 - 15:34
+                                </Typography>
+                                <Link className={styles.link} to={linkTo}>
+                                  <Typography
+                                    variant="subtitle2"
+                                    gutterBottom
+                                    align="right"
+                                    fontSize={14}
+                                    color={colors.greenishGrey}
+                                  >
+                                    Ver +
+                                  </Typography>
+                                </Link>
+                              </CardContent>
+                            </Box>
+                          </Card>
+                        </Link>
                       </Grid>
                     )
                   })
