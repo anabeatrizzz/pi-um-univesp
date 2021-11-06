@@ -23,7 +23,19 @@ const validationSchema = Yup.object({
     .required('Informe sua cidade'),
   cep: Yup
     .string()
-    .required('Informe seu CEP')
+    .required('Informe seu CEP'),
+  email: Yup
+    .string()
+    .email('Informe um e-mail válido')
+    .required('Informe seu e-mail'),
+  password: Yup
+    .string()
+    .min(6, ({ min }) => `Senhas devem ter no mínimo ${min} caracteres`)
+    .required('Informe uma senha'),
+  confirmedPassword: Yup
+    .string()
+    .oneOf([Yup.ref('password')], 'As senhas não são iguais')
+    .required('Informe a senha novamente'),
 })
 
 export default validationSchema
