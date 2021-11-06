@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import { useDropzone } from 'react-dropzone';
 import { colors } from '../../assets/variables';
+import { card } from './EditDonation.css';
 import { useFormik } from 'formik';
 import InputMask from 'react-input-mask';
 import editDonationValidationSchema from '../../formik/validationSchemas/editAndRegisterDonation';
@@ -154,7 +155,7 @@ export default function EditDonation(){
                 ))
               }
             </TextField>
-            <Card sx={{ padding: 2 }}>
+            <Card sx={card}>
               <img
                 width="100%"
                 height="100%"

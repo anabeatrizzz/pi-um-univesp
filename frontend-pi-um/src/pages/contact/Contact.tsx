@@ -64,7 +64,6 @@ export default function Contact() {
                       placeholder="CPF"
                       type="text"
                       fullWidth
-                      required
                       {...inputProps}
                     />
                   )
