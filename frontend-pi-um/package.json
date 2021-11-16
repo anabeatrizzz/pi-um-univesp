@@ -2,6 +2,7 @@
   "name": "frontend-pi-um",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000/api/cadastros",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
@@ -12,6 +13,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
     "google-map-react": "^2.1.10",

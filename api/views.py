@@ -14,8 +14,8 @@ from django.contrib.auth.models import User
 class CadastroViewSet(viewsets.ModelViewSet):
     queryset = Cadastro.objects.all()
     serializer_class = CadastroSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    #permission_classes = [IsAuthenticated]
+    #authentication_classes = (TokenAuthentication,)
 
 
 class UserViewSet(viewsets.ModelViewSet):
