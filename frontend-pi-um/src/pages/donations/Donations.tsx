@@ -113,26 +113,14 @@ export default function Donations() {
                                 <Typography
                                   variant="subtitle2"
                                   gutterBottom
-                                  fontSize={14}
-                                  color={colors.greenishGrey}
+                                  align="right"
                                 >
-                                  12/04/2021 - 15:34
+                                  Ver +
                                 </Typography>
-                                <Link className={styles.link} to={linkTo}>
-                                  <Typography
-                                    variant="subtitle2"
-                                    gutterBottom
-                                    align="right"
-                                    fontSize={14}
-                                    color={colors.greenishGrey}
-                                  >
-                                    Ver +
-                                  </Typography>
-                                </Link>
-                              </CardContent>
-                            </Box>
-                          </Card>
-                        </Link>
+                              </Link>
+                            </CardContent>
+                          </Box>
+                        </Card>
                       </Grid>
                     )
                   })
