@@ -42,7 +42,7 @@ export default function Donations() {
               {
                 categories.map((category) => {
                   return (
-                    <Link to="#" className={styles.link}>
+                    <Link key={category} to="#" className={styles.link}>
                       <Typography component="div" variant="body1">
                         <Box color={colors.mostarda} display='inline'>|</Box> {category}
                       </Typography>
@@ -82,31 +82,34 @@ export default function Donations() {
                   Array(6).fill(1).map((_, index) => {
                     const linkTo = `/donation/${index+1}`
                     return (
-                      <Grid item xs={6}>
-                        <Link className={styles.link} to={linkTo}>
-                          <Card sx={card}>
-                            <CardMedia
-                              component="img"
-                              sx={cardMedia}
-                              src="https://place-hold.it/500x500.png"
-                            />
-                            <Box sx={box}>
-                              <CardContent sx={cardContent}>
-                                <Typography
-                                  variant="h6"
-                                  gutterBottom
-                                  fontSize={16}
-                                  fontWeight={700}
-                                >
-                                  20 sacos de cimento
-                                </Typography>
-                                <Typography
-                                  variant="subtitle2"
-                                  gutterBottom
-                                  fontSize={12}
-                                >
-                                  20 sacos de cimento fechados, 2 sacos abertos, mas com ...
-                                </Typography>
+                      <Grid key={index} item xs={6}>
+                        <Card sx={{ display: 'flex', height: '100%' }}>
+                          <CardMedia
+                            component="img"
+                            sx={{ width: 190 }}
+                            src="https://place-hold.it/500x500.png"
+                          />
+                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                              <Typography
+                                variant="h6"
+                                gutterBottom
+                              >
+                                <b>20 sacos de cimento</b>
+                              </Typography>
+                              <Typography
+                                variant="subtitle2"
+                                gutterBottom
+                              >
+                                20 sacos de cimento fechados, 2 sacos abertos, mas com ...
+                              </Typography>
+                              <Typography
+                                variant="subtitle2"
+                                gutterBottom
+                              >
+                                12/04/2021 - 15:34
+                              </Typography>
+                              <Link className={styles.link} to={linkTo}>
                                 <Typography
                                   variant="subtitle2"
                                   gutterBottom

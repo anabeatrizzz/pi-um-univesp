@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '../../components/textfield';
 import Typography from '@mui/material/Typography';
@@ -8,25 +8,74 @@ import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
 import InputMask from "react-input-mask";
 import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
+import SnackBar from '../../components/snack-bar';
+import { getCadastros, postCadastro } from '../../services/cadastros';
+
+interface ISnackbarProps {
+  open: boolean | undefined;
+  msg?: string | undefined;
+}
 
 export default function SignUp() {
   const styles = useStyles();
+  const [snackbarProps, setSnackbarProps] = useState<ISnackbarProps>()
+  function handleCloseSnackBar() {
+    setSnackbarProps({
+      ...snackbarProps,
+      open: false
+    })
+  }
+
+  useEffect(() => {
+    getCadastros()
+      .then((response) => {
+        //console.log(response)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
+  const formInitialValues = {
+    fullName: '',
+    cpf: '',
+    address: '',
+    number: '',
+    complement: '',
+    neighborhood: 'Gaivota',
+    city: 'Itanhaém',
+    cep: '11740-000',
+  }
+
   const formik = useFormik({
-    initialValues: {
-      fullName: '',
-      cpf: '',
-      address: '',
-      number: '',
-      complement: '',
-      neighborhood: '',
-      city: '',
-      cep: '',
-      email: '',
-      password: '',
-      confirmedPassword: ''
-    },
+    initialValues: formInitialValues,
     validationSchema: signUpValidationSchema,
-    onSubmit: () => { }
+    onSubmit: (values, actions) => {
+      const signUpData = {
+        bairro: values.neighborhood,
+        cidade: values.city,
+        complemento: values.complement,
+        endereco: values.address,
+        nome: values.fullName,
+        numero: values.number,
+        postal: values.cep
+      }
+
+      postCadastro(signUpData)
+        .then(() => {
+          setSnackbarProps({
+            msg: "Cadastro realizado com sucesso!",
+            open: true
+          })
+          actions.resetForm({
+            values: formInitialValues
+          })
+        })
+        .catch(err => {
+          setSnackbarProps({
+            msg: String(err),
+            open: true
+          })
+        })
+    }
   })
 
   return (
@@ -255,6 +304,11 @@ export default function SignUp() {
           </Grid>
         </form>
       </Grid>
+      <SnackBar
+        msg={snackbarProps?.msg}
+        onClose={handleCloseSnackBar}
+        open={snackbarProps?.open}
+      />
     </WrapperPage>
   )
 }
