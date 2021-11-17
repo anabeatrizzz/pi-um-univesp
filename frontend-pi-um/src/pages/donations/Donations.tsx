@@ -42,7 +42,7 @@ export default function Donations() {
               {
                 categories.map((category) => {
                   return (
-                    <Link to="#" className={styles.link}>
+                    <Link key={category} to="#" className={styles.link}>
                       <Typography component="div" variant="body1">
                         <Box color={colors.mostarda} display='inline'>|</Box> {category}
                       </Typography>
@@ -82,7 +82,7 @@ export default function Donations() {
                   Array(6).fill(1).map((_, index) => {
                     const linkTo = `/donation/${index+1}`
                     return (
-                      <Grid item xs={6}>
+                      <Grid key={index} item xs={6}>
                         <Card sx={{ display: 'flex', height: '100%' }}>
                           <CardMedia
                             component="img"

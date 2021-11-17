@@ -8,7 +8,7 @@ import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
 import InputMask from "react-input-mask";
 import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
-import { getCadastros } from '../../services/cadastros';
+import { getCadastros, postCadastro } from '../../services/cadastros';
 
 export default function SignUp() {
   const styles = useStyles();
@@ -16,7 +16,7 @@ export default function SignUp() {
   useEffect(() => {
     getCadastros()
       .then((response) => {
-        console.log(response)
+        //console.log(response)
       })
       .catch(err => console.log(err))
    }, [])
@@ -28,12 +28,28 @@ export default function SignUp() {
       address: '',
       number: '',
       complement: '',
-      neighborhood: '',
-      city: '',
-      cep: '',
+      neighborhood: 'Gaivota',
+      city: 'Itanhaém',
+      cep: '11740-000',
     },
     validationSchema: signUpValidationSchema,
-    onSubmit: () => { }
+    onSubmit: (values) => {
+      console.log(values)
+
+      const signUpData = {
+        bairro: values.neighborhood,
+        cidade: values.city,
+        complemento: values.complement,
+        endereco: values.address,
+        nome: values.fullName,
+        numero: values.number,
+        postal: values.cep
+      }
+
+      postCadastro(signUpData)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    }
   })
 
  return (
