@@ -43,6 +43,9 @@ export default function SignUp() {
     neighborhood: 'Gaivota',
     city: 'Itanhaém',
     cep: '11740-000',
+    email: '',
+    password: '',
+    confirmedPassword: ''
   }
 
   const formik = useFormik({
