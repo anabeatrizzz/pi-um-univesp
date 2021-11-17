@@ -7,8 +7,10 @@ import EditDonation from './pages/edit-donation';
 import Donations from './pages/donations';
 import Donation from './pages/donation';
 import SignUp from './pages/signup';
+import ResetPassword from './pages/reset-password';
 import NotFound from './pages/not-found';
 import Contact from './pages/contact';
+import PasswordForgotten from './pages/password-forgotten';
 import EditRegisterData from './pages/edit-register-data';
 import { colors } from './assets/variables'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -72,6 +74,8 @@ ReactDOM.render(
         <Route exact path='/edit-register-data' component={EditRegisterData} />
         <Route exact path='/register-donation' component={RegisterDonation} />
         <Route exact path='/edit-donation' component={EditDonation} />
+        <Route exact path='/reset-password' component={ResetPassword} />
+        <Route exact path='/password-forgotten' component={PasswordForgotten} />
         <Route exact component={NotFound} />
       </Switch>
     </BrowserRouter>

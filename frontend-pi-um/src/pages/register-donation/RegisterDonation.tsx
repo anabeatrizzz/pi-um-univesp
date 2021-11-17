@@ -6,6 +6,7 @@ import WrapperPage from '../../components/wrapper-page';
 import Button from '../../components/button';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
+import { card } from './RegisterDonation.css'
 import { colors } from '../../assets/variables';
 import { useDropzone } from 'react-dropzone';
 import { useFormik } from 'formik';
@@ -155,7 +156,7 @@ export default function RegisterDonation(){
                 ))
               }
             </TextField>
-            <Card sx={{ padding: 2 }}>
+            <Card sx={card}>
               <img
                 width="100%"
                 height="100%"

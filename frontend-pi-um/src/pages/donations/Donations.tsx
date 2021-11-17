@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
-import useStyles from './Donations.css';
+import useStyles, { box, card, cardContent, cardMedia, iconButton, inputBase } from './Donations.css';
 import { colors } from '../../assets/variables';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
@@ -68,11 +68,11 @@ export default function Donations() {
                 </Grid>
                 <Grid item xs={4}>
                 <InputBase
-                  sx={{ ml: 1, flex: 1 }}
+                  sx={inputBase}
                   placeholder="Buscar"
                   inputProps={{ 'aria-label': 'buscar' }}
                 />
-                <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                <IconButton type="submit" sx={iconButton} aria-label="search">
                   <SearchIcon />
                 </IconButton>
                 </Grid>
@@ -113,14 +113,26 @@ export default function Donations() {
                                 <Typography
                                   variant="subtitle2"
                                   gutterBottom
-                                  align="right"
+                                  fontSize={14}
+                                  color={colors.greenishGrey}
                                 >
-                                  Ver +
+                                  12/04/2021 - 15:34
                                 </Typography>
-                              </Link>
-                            </CardContent>
-                          </Box>
-                        </Card>
+                                <Link className={styles.link} to={linkTo}>
+                                  <Typography
+                                    variant="subtitle2"
+                                    gutterBottom
+                                    align="right"
+                                    fontSize={14}
+                                    color={colors.greenishGrey}
+                                  >
+                                    Ver +
+                                  </Typography>
+                                </Link>
+                              </CardContent>
+                            </Box>
+                          </Card>
+                        </Link>
                       </Grid>
                     )
                   })

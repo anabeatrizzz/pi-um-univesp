@@ -237,6 +237,47 @@ export default function SignUp() {
                   )}
               </InputMask>
             </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="email"
+                label="E-mail"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                variant="outlined"
+                placeholder="E-mail"
+                type="email"
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                fullWidth
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={formik.touched.password && Boolean(formik.errors.password)}
+                helperText={formik.touched.password && formik.errors.password}
+                id="password"
+                required
+                label="Senha"
+                type='password'
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                fullWidth
+                value={formik.values.confirmedPassword}
+                onChange={formik.handleChange}
+                error={formik.touched.confirmedPassword && Boolean(formik.errors.confirmedPassword)}
+                helperText={formik.touched.confirmedPassword && formik.errors.confirmedPassword}
+                id="confirmedPassword"
+                required
+                label="Repita a Senha"
+                type='password'
+              />
+            </Grid>
             <Grid alignSelf="center" item xs={8}>
               <Typography className={styles.typography} variant="body1">
                 * Campos obrigatórios
