@@ -8,17 +8,19 @@ import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
 import InputMask from "react-input-mask";
 import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
-import {variables} from '../../variables';
-import axios from "axios";
-
+import { getCadastros } from '../../services/cadastros';
 
 export default function SignUp() {
   const styles = useStyles();
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/cadastros/")
-     .then((response) => console.log(response))
-     .catch(err => console.log(err))
+    getCadastros()
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(err => console.log(err))
    }, [])
+  
   const formik = useFormik({
     initialValues: {
       fullName: '',
