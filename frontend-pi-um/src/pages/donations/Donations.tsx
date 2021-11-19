@@ -83,14 +83,14 @@ export default function Donations() {
                     const linkTo = `/donation/${index+1}`
                     return (
                       <Grid key={index} item xs={6}>
-                        <Card sx={{ display: 'flex', height: '100%' }}>
+                        <Card sx={card}>
                           <CardMedia
                             component="img"
-                            sx={{ width: 190 }}
+                            sx={cardMedia}
                             src="https://place-hold.it/500x500.png"
                           />
-                          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <CardContent sx={{ flex: '1 0 auto' }}>
+                          <Box sx={box}>
+                            <CardContent sx={cardContent}>
                               <Typography
                                 variant="h6"
                                 gutterBottom
