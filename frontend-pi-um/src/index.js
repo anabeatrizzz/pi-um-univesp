@@ -12,6 +12,7 @@ import NotFound from './pages/not-found';
 import Contact from './pages/contact';
 import PasswordForgotten from './pages/password-forgotten';
 import EditRegisterData from './pages/edit-register-data';
+import YourDonations from './pages/your-donations';
 import { colors } from './assets/variables'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
@@ -67,13 +68,14 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path='/donations' component={Donations} />
-        <Route exact path='/donation/:id' component={Donation} />
+        <Route exact path='/donation/:id' component={Donation} /> 
+        <Route exact path='/your-donations' component={YourDonations} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/contact' component={Contact} />
         <Route exact path='/edit-register-data' component={EditRegisterData} />
         <Route exact path='/register-donation' component={RegisterDonation} />
-        <Route exact path='/edit-donation' component={EditDonation} />
+        <Route exact path='/edit-donation/:id' component={EditDonation} />
         <Route exact path='/reset-password' component={ResetPassword} />
         <Route exact path='/password-forgotten' component={PasswordForgotten} />
         <Route exact component={NotFound} />
