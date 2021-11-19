@@ -7,7 +7,7 @@ export default function Footer(){
   
   return (
     <footer className={styles.footer}>
-      <NavLink to="/" className={styles.paragraph}>
+      <NavLink to="/pi-um-univesp/frontend-pi-um" className={styles.paragraph}>
         INÍCIO
       </NavLink>
       <NavLink to="/donations" className={styles.paragraph}>

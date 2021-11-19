@@ -19,7 +19,7 @@ export default function NotFound(){
           </Typography>
         </Grid>
         <Grid item>
-          <Link to="/">
+          <Link to="/pi-um-univesp/frontend-pi-um">
             <Typography>Volte ao início</Typography>
           </Link>
         </Grid>
