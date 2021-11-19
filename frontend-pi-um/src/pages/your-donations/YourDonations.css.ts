@@ -11,9 +11,8 @@ const useStyles = makeStyles({
 })
 
 const card: CSSProperties = {
-  paddingRight: 5,
-  paddingLeft: 5,
-  width: 300
+  display: 'flex',
+  height: '100%'
 }
 
 export default useStyles

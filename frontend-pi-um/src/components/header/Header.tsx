@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
 import Logo from '../../assets/logo.png';
 import clsx from 'clsx';
 import useStyles, { paperProps } from './Header.css';

@@ -26,7 +26,7 @@ export default function YourDonations() {
             const linkTo = `/edit-donation/${index + 1}`
             return (
               <Grid item xs={6}>
-                <Card sx={{ display: 'flex', height: '100%' }}>
+                <Card sx={card}>
                   <CardMedia
                     component="img"
                     sx={{ width: 190 }}
