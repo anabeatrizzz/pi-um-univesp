@@ -67,7 +67,7 @@ export default function Header() {
         onClick={handleCloseMenu}
       >
         <MenuItem disableGutters>
-          <Link className={styles.typographyLink} to="#">
+          <Link className={styles.typographyLink} to="/your-donations">
             <Typography align="center">Doações cadastradas</Typography>
           </Link>
         </MenuItem>
