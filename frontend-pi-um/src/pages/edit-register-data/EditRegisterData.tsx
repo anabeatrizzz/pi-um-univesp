@@ -19,6 +19,7 @@ export default function EditRegisterData() {
       neighborhood: 'Gaivota',
       city: 'Itanhaém',
       cep: '11740-000',
+      email: 'mariaedileuza@gmail.com'
     },
     validationSchema: signUpValidationSchema,
     onSubmit: () => { }
@@ -50,7 +51,7 @@ export default function EditRegisterData() {
               />
             </Grid>
             <Grid item xs={5}>
-            <InputMask
+              <InputMask
                 mask="999.999.999-99"
                 id="cpf"
                 value={formik.values.cpf}
@@ -153,7 +154,7 @@ export default function EditRegisterData() {
               />
             </Grid>
             <Grid item xs={4}>
-            <InputMask
+              <InputMask
                 mask="99999-999"
                 id="cep"
                 value={formik.values.cep}
@@ -173,8 +174,23 @@ export default function EditRegisterData() {
                       required
                       {...inputProps}
                     />
-                )}
+                  )}
               </InputMask>
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="email"
+                label="E-mail"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                variant="outlined"
+                placeholder="E-mail"
+                type="email"
+                fullWidth
+                required
+              />
             </Grid>
             <Grid
               container
@@ -185,13 +201,13 @@ export default function EditRegisterData() {
             >
               <Grid item mt={2} xs={3}>
                 <Grid
-                container
-                direction="column"
-                justifyContent="center"
-                alignItems="stretch"
-              >
-                <Button type="submit" text="Salvar" />
-              </Grid>
+                  container
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="stretch"
+                >
+                  <Button type="submit" text="Salvar" />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

@@ -43,5 +43,29 @@ const button: CSSProperties = {
   color: 'black'
 }
 
+const card: CSSProperties = {
+  display: 'flex',
+  height: '100%'
+}
+
+const box: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column'
+}
+
+const cardContent: CSSProperties = {
+  flex: '1 0 auto'
+}
+
+const forWhoCardContent: CSSProperties = {
+
+}
+
 export default useStyles
-export { button }
+export {
+  button,
+  card,
+  box,
+  cardContent,
+  forWhoCardContent
+}

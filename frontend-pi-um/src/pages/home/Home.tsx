@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import useStyles from './Home.css'
+import useStyles, { card, box, cardContent, forWhoCardContent } from './Home.css'
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -27,13 +27,13 @@ export default function Home() {
     <WrapperPage>
         <Grid spacing={2} container>
           <Grid item xs={6}>
-            <Card sx={{ display: 'flex', height: '100%' }}>
+            <Card sx={card}>
               <CardMedia
                 component="img"
                 src={Img1}
               />
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <CardContent sx={{ flex: '1 0 auto' }}>
+              <Box sx={box}>
+                <CardContent sx={cardContent}>
                   <Typography
                     variant="h6"
                     gutterBottom
@@ -55,14 +55,14 @@ export default function Home() {
           </Grid>
 
           <Grid item xs={6}>
-            <Card sx={{ display: 'flex', height: '100%' }}>
+            <Card sx={card}>
               <CardMedia
                 component="img"
                 //sx={{ width: 100, height: 100 }}
                 src={Img2}
               />
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <CardContent sx={{ flex: '1 0 auto', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+              <Box sx={box}>
+                <CardContent sx={forWhoCardContent}>
                   <Typography
                     gutterBottom
                     component="div"

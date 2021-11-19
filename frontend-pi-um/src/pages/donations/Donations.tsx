@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
-import useStyles from './Donations.css';
+import useStyles, { box, card, cardContent, cardMedia, iconButton, inputBase } from './Donations.css';
 import { colors } from '../../assets/variables';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
@@ -42,7 +42,7 @@ export default function Donations() {
               {
                 categories.map((category) => {
                   return (
-                    <Link to="#" className={styles.link}>
+                    <Link key={category} to="#" className={styles.link}>
                       <Typography component="div" variant="body1">
                         <Box color={colors.mostarda} display='inline'>|</Box> {category}
                       </Typography>
@@ -68,11 +68,11 @@ export default function Donations() {
                 </Grid>
                 <Grid item xs={4}>
                 <InputBase
-                  sx={{ ml: 1, flex: 1 }}
+                  sx={inputBase}
                   placeholder="Buscar"
                   inputProps={{ 'aria-label': 'buscar' }}
                 />
-                <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                <IconButton type="submit" sx={iconButton} aria-label="search">
                   <SearchIcon />
                 </IconButton>
                 </Grid>
@@ -82,7 +82,7 @@ export default function Donations() {
                   Array(6).fill(1).map((_, index) => {
                     const linkTo = `/donation/${index+1}`
                     return (
-                      <Grid item xs={6}>
+                      <Grid key={index} item xs={6}>
                         <Card sx={{ display: 'flex', height: '100%' }}>
                           <CardMedia
                             component="img"

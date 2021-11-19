@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '../../components/textfield';
 import Typography from '@mui/material/Typography';
@@ -8,22 +8,77 @@ import useStyles from './SignUp.css';
 import { useFormik } from 'formik';
 import InputMask from "react-input-mask";
 import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
+import SnackBar from '../../components/snack-bar';
+import { getCadastros, postCadastro } from '../../services/cadastros';
+
+interface ISnackbarProps {
+  open: boolean | undefined;
+  msg?: string | undefined;
+}
 
 export default function SignUp() {
   const styles = useStyles();
+  const [snackbarProps, setSnackbarProps] = useState<ISnackbarProps>()
+  function handleCloseSnackBar() {
+    setSnackbarProps({
+      ...snackbarProps,
+      open: false
+    })
+  }
+
+  useEffect(() => {
+    getCadastros()
+      .then((response) => {
+        //console.log(response)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
+  const formInitialValues = {
+    fullName: '',
+    cpf: '',
+    address: '',
+    number: '',
+    complement: '',
+    neighborhood: 'Gaivota',
+    city: 'Itanhaém',
+    cep: '11740-000',
+    email: '',
+    password: '',
+    confirmedPassword: ''
+  }
+
   const formik = useFormik({
-    initialValues: {
-      fullName: '',
-      cpf: '',
-      address: '',
-      number: '',
-      complement: '',
-      neighborhood: '',
-      city: '',
-      cep: '',
-    },
+    initialValues: formInitialValues,
     validationSchema: signUpValidationSchema,
-    onSubmit: () => { }
+    onSubmit: (values, actions) => {
+      const signUpData = {
+        bairro: values.neighborhood,
+        cidade: values.city,
+        complemento: values.complement,
+        endereco: values.address,
+        nome: values.fullName,
+        numero: values.number,
+        postal: values.cep
+      }
+
+      postCadastro(signUpData)
+        .then(() => {
+          setSnackbarProps({
+            msg: "Cadastro realizado com sucesso!",
+            open: true
+          })
+          actions.resetForm({
+            values: formInitialValues
+          })
+        })
+        .catch(err => {
+          setSnackbarProps({
+            msg: String(err),
+            open: true
+          })
+        })
+    }
   })
 
   return (
@@ -159,7 +214,7 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={4}>
-            <InputMask
+              <InputMask
                 mask="99999-999"
                 id="cep"
                 //value={formik.values.cep}
@@ -182,8 +237,49 @@ export default function SignUp() {
                       required
                       {...inputProps}
                     />
-                )}
+                  )}
               </InputMask>
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="email"
+                label="E-mail"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                variant="outlined"
+                placeholder="E-mail"
+                type="email"
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                fullWidth
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={formik.touched.password && Boolean(formik.errors.password)}
+                helperText={formik.touched.password && formik.errors.password}
+                id="password"
+                required
+                label="Senha"
+                type='password'
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                fullWidth
+                value={formik.values.confirmedPassword}
+                onChange={formik.handleChange}
+                error={formik.touched.confirmedPassword && Boolean(formik.errors.confirmedPassword)}
+                helperText={formik.touched.confirmedPassword && formik.errors.confirmedPassword}
+                id="confirmedPassword"
+                required
+                label="Repita a Senha"
+                type='password'
+              />
             </Grid>
             <Grid alignSelf="center" item xs={8}>
               <Typography className={styles.typography} variant="body1">
@@ -211,6 +307,11 @@ export default function SignUp() {
           </Grid>
         </form>
       </Grid>
+      <SnackBar
+        msg={snackbarProps?.msg}
+        onClose={handleCloseSnackBar}
+        open={snackbarProps?.open}
+      />
     </WrapperPage>
   )
 }
