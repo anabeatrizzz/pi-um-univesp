@@ -75,7 +75,7 @@ ReactDOM.render(
         <Route exact path='/contact' component={Contact} />
         <Route exact path='/edit-register-data' component={EditRegisterData} />
         <Route exact path='/register-donation' component={RegisterDonation} />
-        <Route exact path='/edit-donation' component={EditDonation} />
+        <Route exact path='/edit-donation/:id' component={EditDonation} />
         <Route exact path='/reset-password' component={ResetPassword} />
         <Route exact path='/password-forgotten' component={PasswordForgotten} />
         <Route exact component={NotFound} />
