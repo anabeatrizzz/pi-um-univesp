@@ -66,7 +66,7 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/pi-um-univesp/frontend-pi-um" component={Home} />
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/donation/:id' component={Donation} /> 
         <Route exact path='/your-donations' component={YourDonations} />

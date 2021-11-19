@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Link className={styles.link} to="/">
+      <Link className={styles.link} to="/pi-um-univesp/frontend-pi-um">
         <img
           src={Logo}
           alt="obra social logo"
@@ -32,7 +32,7 @@ export default function Header() {
       </Link>
       <nav className={styles.nav}>
         <ul className={styles.ul}>
-          <NavLink className={styles.navLink} to="/">
+          <NavLink className={styles.navLink} to="/pi-um-univesp/frontend-pi-um">
             <li className={styles.li}>Início</li>
           </NavLink>
           <li className={clsx(styles.li, styles.pipe)}> | </li>
