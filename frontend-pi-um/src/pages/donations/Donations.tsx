@@ -20,7 +20,7 @@ export default function Donations() {
   const styles = useStyles();
   const categories = ['Básico', 'Revestimento', 'Louças', 'Metais', 'Hidráulica', 'Elétrica', 'Pintura', 'Gesso', 'Vidro', 'Esquadrias', 'Portas e janelas']
   const breadcrumbs = [
-    <Link className={styles.link} to="/pi-um-univesp/frontend-pi-um">
+    <Link className={styles.link} to="/">
       Início
     </Link>,
     <Link className={styles.link} to="/donations">

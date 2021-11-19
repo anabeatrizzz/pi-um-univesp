@@ -20,7 +20,7 @@ export default function Donation() {
   const params: IParams = useParams();
   const styles = useStyles();
   const breadcrumbs = [
-    <Link className={styles.link} to="/pi-um-univesp/frontend-pi-um">
+    <Link className={styles.link} to="/">
       Início
     </Link>,
     <Link className={styles.link} to="/donations">
