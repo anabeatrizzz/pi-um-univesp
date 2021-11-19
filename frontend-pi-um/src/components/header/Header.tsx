@@ -12,9 +12,9 @@ export default function Header() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  function handleNavLinkClick(event: MouseEvent<HTMLElement>){
-    setAnchorEl(anchorEl ? null : event.currentTarget);
-  }
+  // function handleNavLinkClick(event: MouseEvent<HTMLElement>){
+  //   setAnchorEl(anchorEl ? null : event.currentTarget);
+  // }
 
   function handleCloseMenu(){
     setAnchorEl(null);
