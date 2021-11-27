@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-MEDIA_URL ='/Imagens/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'Imagens')
+# BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+# MEDIA_URL ='/Imagens/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'Imagens')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,10 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework.authentication',
     'webpack_loader',
     'api',
     'corsheaders',
-    'donations.apps.DonationsConfig',
+    #'donations.apps.DonationsConfig',
+    'users',
+    'doacoes',
 ]
 
 CORS_ORIGIN_ALLOW_ALL  = True
@@ -73,7 +76,7 @@ ROOT_URLCONF = 'pi_um_univesp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,8 +97,12 @@ WSGI_APPLICATION = 'pi_um_univesp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'obrasocial',
+        'USER': 'postgres',
+        'PASSWORD': '25111965',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -137,6 +144,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'pi-um-univesp', 'src'),

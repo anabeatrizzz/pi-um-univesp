@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
@@ -9,9 +9,20 @@ import useStyles, { card } from './Login.css';
 import WrapperPage from '../../components/wrapper-page';
 import { useFormik } from 'formik';
 import loginValidationSchema from '../../formik/validationSchemas/login';
+import { postLogin } from '../../services/login';
+
 
 export default function Login() {
   const styles = useStyles();
+
+  useEffect(() => {
+    postLogin()
+      .then((response) => {
+        //console.log(response)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
   const formik = useFormik({
     initialValues: {
       email: '',
