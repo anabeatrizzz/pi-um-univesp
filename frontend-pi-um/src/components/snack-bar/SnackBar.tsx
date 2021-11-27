@@ -16,7 +16,7 @@ export default function SnackBar(props: ISnackBar) {
       autoHideDuration={3000}
       onClose={() => props.onClose()}
     >
-      <Alert severity="success">
+      <Alert severity="info">
         {props.msg}
       </Alert>
     </MUISnackbar>

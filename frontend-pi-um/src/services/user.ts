@@ -1,7 +1,11 @@
-import axios from "axios";
+import api from './api';
+const endpoint = "user/user"
 
-const user = axios.create({
-  baseURL: "http://127.0.0.1:8000/user"
-})
+async function postUser(newData: any){
+  const response = await api.post(`${endpoint}/register`, newData)
+  return response.data
+}
 
-export default user
+export {
+  postUser
+}

@@ -9,7 +9,7 @@ import { useFormik } from 'formik';
 import InputMask from "react-input-mask";
 import signUpValidationSchema from '../../formik/validationSchemas/signUpAndEditRegisterData';
 import SnackBar from '../../components/snack-bar';
-import { getCadastros, postCadastro } from '../../services/cadastros';
+import { postUser } from '../../services/user';
 
 interface ISnackbarProps {
   open: boolean | undefined;
@@ -25,14 +25,6 @@ export default function SignUp() {
       open: false
     })
   }
-
-  useEffect(() => {
-    getCadastros()
-      .then((response) => {
-        //console.log(response)
-      })
-      .catch(err => console.log(err))
-  }, [])
 
   const formInitialValues = {
     fullName: '',
@@ -62,7 +54,7 @@ export default function SignUp() {
         postal: values.cep
       }
 
-      postCadastro(signUpData)
+      postUser(signUpData)
         .then(() => {
           setSnackbarProps({
             msg: "Cadastro realizado com sucesso!",
@@ -72,7 +64,7 @@ export default function SignUp() {
             values: formInitialValues
           })
         })
-        .catch(err => {
+        .catch((err: any) => {
           setSnackbarProps({
             msg: String(err),
             open: true
